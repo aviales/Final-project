@@ -1,0 +1,7 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  periodicity: 2021-04-21
+
+two:
+  periodicity: 2021-04-21

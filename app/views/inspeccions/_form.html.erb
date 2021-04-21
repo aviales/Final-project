@@ -1,0 +1,22 @@
+<%= form_with(model: inspeccion) do |form| %>
+  <% if inspeccion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inspeccion.errors.count, "error") %> prohibited this inspeccion from being saved:</h2>
+
+      <ul>
+        <% inspeccion.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :periodicity %>
+    <%= form.date_select :periodicity %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

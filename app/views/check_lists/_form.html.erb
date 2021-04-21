@@ -1,0 +1,27 @@
+<%= form_with(model: check_list) do |form| %>
+  <% if check_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(check_list.errors.count, "error") %> prohibited this check_list from being saved:</h2>
+
+      <ul>
+        <% check_list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hazard_type %>
+    <%= form.text_field :hazard_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
