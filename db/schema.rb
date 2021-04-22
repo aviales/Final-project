@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_04_21_203611) do
   end
 
   create_table "check_list_items", force: :cascade do |t|
-    t.string "value"
+    t.boolean "value"
     t.string "text"
     t.bigint "check_list_id"
     t.datetime "created_at", precision: 6, null: false
@@ -83,7 +83,8 @@ ActiveRecord::Schema.define(version: 2021_04_21_203611) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
+    t.string "username"
+    t.string "profile_picture"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
