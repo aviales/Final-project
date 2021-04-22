@@ -1,0 +1,22 @@
+
+ footer {
+  text-align: right;
+  background:#464747;
+  height: 70px;
+  font-family: 'Raleway', sans-serif;
+  color: white;
+}
+
+.icono svg {
+  fill: #ffffff;
+}
+.fa-bullhorn:before {
+  content: "\f0a1";
+}
+.card-columns {
+  column-count: 4;
+}
+.card {
+  min-height: 100px;
+}
+
