@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
-  before_action :authorize_admin!, except: [:index, :new, :create ]
+  before_action :authorize_admin!, except: [:index, :new, :create, :show ]
  
   # GET /projects or /projects.json
   def index
@@ -24,11 +24,10 @@ class ProjectsController < ApplicationController
 
   # POST /projects or /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = Project.new(project_params.merge(user: current_user))
 
     respond_to do |format|
       if @project.save
-        @project.set_references(params[:inspeccions])
         format.html { redirect_to @project, notice: "Project was successfully created." }
         format.json { render :show, status: :created, location: @project }
       else
@@ -42,7 +41,6 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        @project.set_references(params[:inspeccions])
         format.html { redirect_to @project, notice: "Project was successfully updated." }
         format.json { render :show, status: :ok, location: @project }
       else
@@ -69,6 +67,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :startdate, :finishdate)
+      params.require(:project).permit(:name, :start_date, :finishdate)
     end
 end
