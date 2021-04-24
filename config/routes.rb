@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+ 
   devise_for :admin_users
+  resources :users
   resources :work_areas
   resources :check_list_items
   resources :check_lists
