@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
  
   devise_for :admin_users
-  resources :users
+  resources :users, only: [:index, :show]
   resources :work_areas
   resources :check_list_items
   resources :check_lists
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :contractor_types
   resources :contractors
   resources :projects
-  get 'home/index'
+  
   
   devise_for :users
   root'home#index'
