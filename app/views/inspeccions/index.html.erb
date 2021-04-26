@@ -3,17 +3,18 @@
 <h1>Inspeccions</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Periodicity</th>
+  <thead class="thead-dark">
+    <tr class="text-center">
+      <th scope="col">periodicity</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @inspeccions.each do |inspeccion| %>
-      <tr>
+     <tr class="text-center">
         <td><%= inspeccion.periodicity %></td>
+        <td  class="text-left"><%= inspeccion.order(:date).map{|s|}.join(', ') %>
         <td><%= link_to 'Show', inspeccion %></td>
         <td><%= link_to 'Edit', edit_inspeccion_path(inspeccion) %></td>
         <td><%= link_to 'Destroy', inspeccion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,4 +25,6 @@
 
 <br>
 
-<%= link_to 'New Inspeccion', new_inspeccion_path %>
+
+<%= link_to '<button type="button" class="btn btn-dark">New Inspeccion</button>'.html_safe, new_inspeccion_path %>
+<%= link_to '<button type="button" class="btn btn-dark">Back</button>'.html_safe, projects_path %>

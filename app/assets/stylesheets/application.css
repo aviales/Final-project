@@ -10,6 +10,193 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require_tree
  *= require_self
+ *= require font-awesome
  */
+ 
+
+ * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+}
+
+.avatar-img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.thoughts {
+  width: 30rem;
+  margin: 0 29.9%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(0, 123, 164);
+}
+
+.new-tweet {
+  width: 100%;
+  height: 10rem;
+  outline: none;
+  border-color: lightgrey;
+}
+
+.submit {
+  color: white;
+  background-color: rgb(0, 123, 164);
+  border-radius: 60px;
+}
+
+.search {
+  width: 40%;
+  margin-left: 31.5%;
+}
+
+.search input {
+  border-color: lightgrey;
+  outline: none;
+  width: 74%;
+  border-radius: 60px;
+  padding: 3px 2px;
+}
+
+.main {
+  width: 40%;
+  margin: 0 30%;
+}
+
+.fa-twitter, .fa-pen, .fa-trash {
+  color: rgb(0, 123, 164);
+}
+
+.fa-pen, .fa-trash {
+  font-size: 1rem;
+}
+
+.fa-pen:hover, .fa-trash:hover {
+  color: rgb(0, 123, 164);
+  font-size: 1.1rem;
+}
+
+.fa-trash {
+  float: right;
+  padding-left: 5px;
+}
+
+.fa-pen {
+  float: right;
+  padding-right: 5px;
+}
+
+.card-title, .date {
+  color: rgb(0, 123, 164);
+}
+
+.card-img-top {
+  margin: 10px 0 0 10px;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-block;
+}
+
+.card-title {
+  display: inline;
+}
+
+.login {
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(0, 123, 164) !important;
+}
+
+.button {
+  color: rgb(0, 123, 164);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+a {
+  color: rgb(0, 123, 164);
+}
+
+.registration input {
+  border-color: lightgrey;
+  outline: none;
+  width: 20rem;
+}
+
+.new_user {
+  color: rgb(0, 123, 164); 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pagination a {
+  color: rgb(0, 123, 164);    
+}
+
+.next_page {
+  margin-left: 1rem;
+}
+
+.previous_page {
+  display: none;
+}
+
+.likes {
+  width: 30rem;
+  border: 1px solid lightgrey;
+}
+
+.likes img {
+  display: inline-block;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 50%;
+  margin: 4%;
+}
+
+.likes span{
+  color: rgb(0, 123, 164);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+}
+
+.cora {
+  float: right;
+  color: rgb(0, 123, 164);
+  margin-top: 2rem;
+  padding-right: 2rem;
+}
+
+.follow {
+  border: 1px solid rgb(0, 123, 164);
+  border-radius: 40px;
+  padding: 1px 5px;
+  margin-left: 0.6rem;
+  outline: none;
+}
+
+.follow:hover {
+  color: white;
+  background-color: rgb(0, 123, 164);
+}
+
+.follow:hover, .button:hover {
+  text-decoration: none;
+}
+
+.button:hover {
+  color: rgb(0, 123, 164);
+  font-size: 1.1rem;
+}

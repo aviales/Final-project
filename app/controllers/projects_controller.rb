@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
-
+  #before_action :authorize_admin!, except: [:index, :new, :create, :show ]
+  before_action :authenticate_user!, except: %i[ index search ]
+ 
   # GET /projects or /projects.json
   def index
     @projects = Project.all
@@ -17,18 +19,20 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    @inspeccion = inspeccion_url.when(available: true).order("date")
+    @project.inspeccion.build
   end
 
   # POST /projects or /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = Project.new(project_params.merge(user: current_user))
 
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: "Project was successfully created." }
         format.json { render :show, status: :created, location: @project }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
@@ -41,7 +45,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to @project, notice: "Project was successfully updated." }
         format.json { render :show, status: :ok, location: @project }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
@@ -64,6 +68,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :startdate)
+      params.require(:project).permit(:name, :start_date, :finishdate)
     end
 end

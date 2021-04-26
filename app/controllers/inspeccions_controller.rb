@@ -1,6 +1,6 @@
 class InspeccionsController < ApplicationController
   before_action :set_inspeccion, only: %i[ show edit update destroy ]
-
+  before_action :authorize_admin!, except: [:index, :new, :create ]
   # GET /inspeccions or /inspeccions.json
   def index
     @inspeccions = Inspeccion.all
@@ -41,7 +41,7 @@ class InspeccionsController < ApplicationController
         format.html { redirect_to @inspeccion, notice: "Inspeccion was successfully updated." }
         format.json { render :show, status: :ok, location: @inspeccion }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @inspeccion.errors, status: :unprocessable_entity }
       end
     end
@@ -64,6 +64,6 @@ class InspeccionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inspeccion_params
-      params.require(:inspeccion).permit(:periodicity)
+      params.require(:inspeccion).permit(:periodicity, :available)
     end
 end

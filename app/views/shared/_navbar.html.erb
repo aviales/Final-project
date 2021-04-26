@@ -1,22 +1,30 @@
-<nav class="navbar navbar-expand-lg text-light bg-dark">
-    <a class="navbar-brand">
-      <%= link_to "Chart", root_path, class: "nav-link" %>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <%= link_to(root_path) do %>
+        <i class="fas fa-hard-hat fa-5x"></i>
+    <% end %>
+
   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <%= link_to "Inspeccions", inspeccions_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-            <%= link_to "Contractors", contractors_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Projects", projects_path, class: "nav-link" %>
-        </li>
-      </ul>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item login mr-3">
+                <%= link_to '<button type="button" class="btn btn-dark">New contractor</button>'.html_safe, contractors_path %>
+                <%= link_to '<button type="button" class="btn btn-dark">New Project</button>'.html_safe, projects_path %>
+            </li>
+            <li class="nav-item login mr-3">
+                <% if current_user %>
+                    <%= link_to 'Logout', destroy_user_session_path, class: "nav-link", method: "delete" %>
+                <% else %>
+                    <%= link_to 'Login', new_user_session_path, class: "nav-link" %>
+                <% end %>
+            </li>
+            <li class="nav-item">
+                <% if current_user %>
+                    <%= link_to(edit_user_registration_path) do %>
+                        <%= image_tag(current_user.profile_picture, class: 'avatar-img') %>
+                    <% end %>
+              <% end %>
+            </li>
+        </ul>
     </div>
 </nav>

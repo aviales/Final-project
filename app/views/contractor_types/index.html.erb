@@ -3,17 +3,16 @@
 <h1>Contractor Types</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+  <thead class="thead-dark">
+    <tr class="text-center">
+     <th scope="col">Types</th>
     </tr>
   </thead>
 
   <tbody>
     <% @contractor_types.each do |contractor_type| %>
-      <tr>
-        <td><%= contractor_type.name %></td>
+      <tr class="text-center">
+        <td><%= class="text-left"><%= contractor_type.order(:name).map{|s|}.join(', ') %></td>
         <td><%= link_to 'Show', contractor_type %></td>
         <td><%= link_to 'Edit', edit_contractor_type_path(contractor_type) %></td>
         <td><%= link_to 'Destroy', contractor_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,4 +23,6 @@
 
 <br>
 
-<%= link_to 'New Contractor Type', new_contractor_type_path %>
+
+<%= link_to '<button type="button" class="btn btn-dark">New contractor</button>'.html_safe, new_contractor_type_path %>
+<%= link_to '<button type="button" class="btn btn-dark">Back</button>'.html_safe, contractor_types_path %>
