@@ -20,8 +20,12 @@
   </div>
 
 <div class="field">
-    <%= form.label :startdate %>
-    <%= form.date_select :startdate %>
+    <%= form.label :start_date %>
+    <%= form.date_select :start_date %>
+</div>
+<div class="field">
+    <%= form.label :finish_date %>
+    <%= form.date_select :finish_date %>
 </div>
 <div class="actions">
   <%= form.submit value="Project Create" %>

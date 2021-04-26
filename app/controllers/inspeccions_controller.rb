@@ -3,7 +3,12 @@ class InspeccionsController < ApplicationController
   before_action :authorize_admin!, except: [:index, :new, :create ]
   # GET /inspeccions or /inspeccions.json
   def index
-    @inspeccions = Inspeccion.all
+    if params[:search] && params[:search][:dob].present?
+      start_date, end_date = params[:search][:dob].split(' - ')
+      @inspeccions = Inspeccion.having_dob_between(start_date, end_date)
+    else
+      @inspeccions = Inspeccion.all
+    end
   end
 
   # GET /inspeccions/1 or /inspeccions/1.json
@@ -64,6 +69,6 @@ class InspeccionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inspeccion_params
-      params.require(:inspeccion).permit(:periodicity, :available)
+      params.require(:inspeccion).permit(:periodicity,:dob)
     end
 end

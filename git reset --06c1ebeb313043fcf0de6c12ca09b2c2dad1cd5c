@@ -1,0 +1,93 @@
+[33mcommit 59ec5eb89967fb83aa998183373a1bce081a23c6[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: 06c1ebe e87f7b1
+Author: aviales <77812964+aviales@users.noreply.github.com>
+Date:   Mon Apr 26 09:15:17 2021 -0600
+
+    Merge pull request #2 from steyler/main
+    
+    Changes on devise and active storage
+
+[33mcommit e87f7b195455c5cc469000e946c191f810a8e7fd[m
+Merge: 4fe758c 7613b3d
+Author: steyler <43554412+steyler@users.noreply.github.com>
+Date:   Mon Apr 26 08:52:32 2021 -0600
+
+    Merge pull request #1 from steyler/master
+    
+    updating mine main
+
+[33mcommit 7613b3d6c087255237c21c5169e8b2d20323c1e5[m
+Author: Steyler <steylerap@gmail.com>
+Date:   Mon Apr 26 00:12:00 2021 -0600
+
+    image processing and active storage adding
+
+[33mcommit 06c1ebeb313043fcf0de6c12ca09b2c2dad1cd5c[m
+Author: alonso <avialesarrieta@gmail.com>
+Date:   Sat Apr 24 17:37:24 2021 -0600
+
+    views user add
+
+[33mcommit 3a0f0f949452904c10033caf9199c1009d4d6705[m
+Author: alonso <avialesarrieta@gmail.com>
+Date:   Fri Apr 23 17:47:49 2021 -0600
+
+    controller user add
+
+[33mcommit 6e7329be346f997e3ac26cee8364f32ce723c0d9[m
+Author: alonso <avialesarrieta@gmail.com>
+Date:   Fri Apr 23 15:02:54 2021 -0600
+
+    controller and views project changes
+
+[33mcommit e2b8d9827f1bedb42e924845bcd4c4a82dec883d[m
+Author: alonso <avialesarrieta@gmail.com>
+Date:   Thu Apr 22 18:53:50 2021 -0600
+
+    devise carousel views add
+
+[33mcommit 8143b50d523083490b986b7ecd928ae19e8fd141[m
+Author: alonso <avialesarrieta@gmail.com>
+Date:   Thu Apr 22 15:16:10 2021 -0600
+
+    mailer views
+
+[33mcommit b9b2044832bbed421118ace97ebb77fca6370f7f[m
+Merge: 2af6c0f 7d81fe8
+Author: alonso <avialesarrieta@gmail.com>
+Date:   Thu Apr 22 12:36:04 2021 -0600
+
+     model adminuser changes
+
+[33mcommit 2af6c0f08b32c7d11fb20784ff1e96ce46bae677[m
+Author: alonso <avialesarrieta@gmail.com>
+Date:   Thu Apr 22 12:20:06 2021 -0600
+
+     model adminuser changes
+
+[33mcommit 7d81fe8b3ae228f68472582cf34ca1c2885684e7[m
+Merge: 445791c 4fe758c
+Author: aviales <77812964+aviales@users.noreply.github.com>
+Date:   Thu Apr 22 12:16:46 2021 -0600
+
+    Merge pull request #1 from steyler/main
+    
+    added a testing erb js on alonso project
+
+[33mcommit 4fe758c00d9bc1af09607a8e221764b3cd454d34[m
+Author: Steyler <steylerap@gmail.com>
+Date:   Thu Apr 22 12:09:25 2021 -0600
+
+    added a testing erb js on alonso project
+
+[33mcommit 445791c2ebbc68ba7bc89d8c5b9a082b1b3f39b5[m
+Author: alonso <avialesarrieta@gmail.com>
+Date:   Thu Apr 22 10:26:40 2021 -0600
+
+    models add
+
+[33mcommit 2a80e5de5bda12ddbd28caa7d57b5bfc7922d767[m
+Author: alonso <avialesarrieta@gmail.com>
+Date:   Wed Apr 21 16:21:45 2021 -0600
+
+    add models
