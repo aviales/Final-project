@@ -98,11 +98,13 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.date "start_date"
     t.date "finish_date"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -111,7 +113,8 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
     t.string "profile_picture"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -134,5 +137,6 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   add_foreign_key "contractor_types", "contractors"
   add_foreign_key "inspeccions", "contractors"
   add_foreign_key "inspeccions", "projects"
+  add_foreign_key "projects", "users"
   add_foreign_key "work_areas", "check_lists"
 end

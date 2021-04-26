@@ -15,6 +15,13 @@
     <%= form.label :periodicity %>
     <%= form.date_select :periodicity %>
   </div>
+ <%= form_for(:search, class: 'form-inline', url: inspeccions_path, method: :get) do |form| %>
+  <div class="form-group">
+    <%= form.label :perio %>
+    <%= form.text_field :dob, class: 'form-control', data: { behavior: 'daterangepicker' } %>
+  </div>
+  <%= form.submit "Search", class: 'btn btn-success' %>
+<% end %>
 
   <div class="actions">
     <%= form.submit %>
