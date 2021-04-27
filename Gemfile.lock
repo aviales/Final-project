@@ -39,6 +39,9 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_date_range (0.1.0)
+      activesupport (~> 6.1)
+      i18n
     activejob (6.1.3.1)
       activesupport (= 6.1.3.1)
       globalid (>= 0.3.6)
@@ -238,7 +241,7 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
-    webpacker (5.2.1)
+    webpacker (5.3.0)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -254,6 +257,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_date_range
   bootsnap (>= 1.4.4)
   bootstrap-daterangepicker-rails
   byebug

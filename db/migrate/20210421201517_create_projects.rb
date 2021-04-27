@@ -4,6 +4,7 @@ class CreateProjects < ActiveRecord::Migration[6.1]
       t.string :name, null: false
       t.date :start_date
       t.date :finish_date
+      t.integer :periodicity, default: 0
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

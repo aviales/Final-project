@@ -1,14 +1,10 @@
 class InspeccionsController < ApplicationController
   before_action :set_inspeccion, only: %i[ show edit update destroy ]
   before_action :authorize_admin!, except: [:index, :new, :create ]
+  before_action :set_project, only: %i[ show edit update destroy new ]
   # GET /inspeccions or /inspeccions.json
   def index
-    if params[:search] && params[:search][:dob].present?
-      start_date, end_date = params[:search][:dob].split(' - ')
-      @inspeccions = Inspeccion.having_dob_between(start_date, end_date)
-    else
       @inspeccions = Inspeccion.all
-    end
   end
 
   # GET /inspeccions/1 or /inspeccions/1.json
@@ -22,18 +18,20 @@ class InspeccionsController < ApplicationController
 
   # GET /inspeccions/1/edit
   def edit
+    @inspeccion = inspeccion_url.when(available: true).order("date")
+    @inspeccion.check_list.build
   end
 
   # POST /inspeccions or /inspeccions.json
   def create
-    @inspeccion = Inspeccion.new(inspeccion_params)
+    @inspeccion = Inspeccion.new(inspeccion_params.merge(project: set_project))
 
     respond_to do |format|
       if @inspeccion.save
         format.html { redirect_to @inspeccion, notice: "Inspeccion was successfully created." }
         format.json { render :show, status: :created, location: @inspeccion }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @inspeccion.errors, status: :unprocessable_entity }
       end
     end
@@ -67,8 +65,15 @@ class InspeccionsController < ApplicationController
       @inspeccion = Inspeccion.find(params[:id])
     end
 
+    def set_project
+      @project = Project.find(params[:project_id])
+    end
+
+
+
     # Only allow a list of trusted parameters through.
     def inspeccion_params
-      params.require(:inspeccion).permit(:periodicity,:dob)
+      params.require(:inspeccion).permit(:periodicity, :dob)
     end
+    
 end

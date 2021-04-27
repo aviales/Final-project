@@ -1,4 +1,4 @@
-<%= form_with(model: inspeccion) do |form| %>
+<%= form_with(model: [@project, inspeccion]) do |form| %>
   <% if inspeccion.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(inspeccion.errors.count, "error") %> prohibited this inspeccion from being saved:</h2>
@@ -10,20 +10,18 @@
       </ul>
     </div>
   <% end %>
+  <div >
+    <h5>Puts Inspeccions info:</h5>
+  </div>
 
   <div class="field">
-    <%= form.label :periodicity %>
-    <%= form.date_select :periodicity %>
+    <%= form.label :contractor_id %>
+    <%= form.select :contractor_id, Contractor.pluck( :name, :id ) %>
   </div>
- <%= form_for(:search, class: 'form-inline', url: inspeccions_path, method: :get) do |form| %>
-  <div class="form-group">
-    <%= form.label :perio %>
-    <%= form.text_field :dob, class: 'form-control', data: { behavior: 'daterangepicker' } %>
-  </div>
-  <%= form.submit "Search", class: 'btn btn-success' %>
-<% end %>
+  
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-success' %>
   </div>
+
 <% end %>
