@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   resources :work_areas
   resources :check_list_items
   resources :check_lists
-  resources :inspeccions
   resources :contractor_types
   resources :contractors
-  resources :projects
+  resources :projects do 
+    resources :inspeccions
+  end
   
   devise_for :admin_users
   devise_for :users

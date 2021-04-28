@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   create_table "inspeccions", force: :cascade do |t|
     t.date "periodicity"
     t.bigint "contractor_id"
-    t.bigint "project_id"
+    t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["contractor_id"], name: "index_inspeccions_on_contractor_id"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
     t.string "name", null: false
     t.date "start_date"
     t.date "finish_date"
+    t.integer "periodicity", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
