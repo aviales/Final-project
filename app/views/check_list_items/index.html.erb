@@ -3,10 +3,10 @@
 <h1>Check List Items</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Value</th>
-      <th>Text</th>
+   <thead class="thead-dark">
+    <tr class="text-center">
+      <th scope="col">Value</th>
+      <th scope="col">Text</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,4 +26,5 @@
 
 <br>
 
-<%= link_to 'New Check List Item', new_check_list_item_path %>
+<%= link_to '<button type="button" class="btn btn-dark">New Check List item</button>'.html_safe, new_check_list_item_path %>
+<%= link_to '<button type="button" class="btn btn-dark">New Check List</button>'.html_safe, new_check_list_path %>

@@ -8,7 +8,7 @@
      <th scope="col">Name</th>
       <th scope="col">Start date</th>
       <th scope="col">Finish date</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -20,6 +20,7 @@
         <td><%= project.finish_date %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to "Inspeccion date", project_inspeccions_path(project.id) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -30,4 +31,3 @@
 
 
 <%= link_to '<button type="button" class="btn btn-dark">New Project</button>'.html_safe, new_project_path %>
-<%#= link_to '<button type="button" class="btn btn-dark">Inspeccion </button>'.html_safe, project_inspeccions_path %>

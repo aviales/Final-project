@@ -18,6 +18,10 @@
     <%= form.label :contractor_id %>
     <%= form.select :contractor_id, Contractor.pluck( :name, :id ) %>
   </div>
+    <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
   
 
   <div class="actions">

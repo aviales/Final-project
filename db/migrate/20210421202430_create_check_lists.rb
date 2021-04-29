@@ -4,7 +4,7 @@ class CreateCheckLists < ActiveRecord::Migration[6.1]
       t.date :date
       t.string :hazard_type
       t.references :contractor, foreign_key: true
-
+      t.references :inspeccion, foreign_key: true
       t.timestamps
     end
   end

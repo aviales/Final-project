@@ -21,6 +21,11 @@
     <%= form.text_field :hazard_type %>
   </div>
 
+  <div class="field">
+    <%= form.label :inspeccion %>
+    <%= form.select :inspeccion_id, options_from_collection_for_select(@inspeccion, :id, :date)%>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
