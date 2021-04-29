@@ -28,6 +28,13 @@ body {
   border: 0;
   width: 100%;
 }
+/* changes on the icon logo */
+.logo {
+  background-size:90px 30px;
+  width:90px;
+  margin-left:-45px;
+  height:30px;
+}
 
 .avatar-img {
   width: 2rem;
