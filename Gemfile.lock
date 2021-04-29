@@ -39,9 +39,6 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    active_date_range (0.1.0)
-      activesupport (~> 6.1)
-      i18n
     activejob (6.1.3.1)
       activesupport (= 6.1.3.1)
       globalid (>= 0.3.6)
@@ -69,8 +66,6 @@ GEM
     bindex (0.8.1)
     bootsnap (1.7.4)
       msgpack (~> 1.0)
-    bootstrap-daterangepicker-rails (3.0.4)
-      railties (>= 4.0)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.35.3)
@@ -106,10 +101,6 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
-    jquery-rails (4.4.0)
-      rails-dom-testing (>= 1, < 3)
-      railties (>= 4.2.0)
-      thor (>= 0.14, < 2.0)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -136,8 +127,6 @@ GEM
     mini_mime (1.0.3)
     mini_portile2 (2.5.0)
     minitest (5.14.4)
-    momentjs-rails (2.20.1)
-      railties (>= 3.1)
     msgpack (1.4.2)
     nio4r (2.5.7)
     nokogiri (1.11.3)
@@ -257,9 +246,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_date_range
   bootsnap (>= 1.4.4)
-  bootstrap-daterangepicker-rails
   byebug
   capybara (>= 3.26)
   devise
@@ -267,10 +254,8 @@ DEPENDENCIES
   font-awesome-rails
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
-  jquery-rails
   kaminari
   listen (~> 3.3)
-  momentjs-rails
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

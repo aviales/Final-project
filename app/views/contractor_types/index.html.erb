@@ -12,7 +12,7 @@
   <tbody>
     <% @contractor_types.each do |contractor_type| %>
       <tr class="text-center">
-        <td><%= class="text-left"><%= contractor_type.order(:name).map{|s|}.join(', ') %></td>
+        <td> class="text-left" ><%= contractor_type.order(:name).map{|s|}.join(', ') %></td>
         <td><%= link_to 'Show', contractor_type %></td>
         <td><%= link_to 'Edit', edit_contractor_type_path(contractor_type) %></td>
         <td><%= link_to 'Destroy', contractor_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,5 +24,5 @@
 <br>
 
 
-<%= link_to '<button type="button" class="btn btn-dark">New contractor</button>'.html_safe, new_contractor_type_path %>
+<%= link_to '<button type="button" class="btn btn-dark">New contractor types</button>'.html_safe, new_contractor_type_path %>
 <%= link_to '<button type="button" class="btn btn-dark">Back</button>'.html_safe, contractor_types_path %>

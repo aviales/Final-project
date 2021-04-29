@@ -83,12 +83,14 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
 
   create_table "contractors", force: :cascade do |t|
     t.string "name"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_contractors_on_user_id"
   end
 
   create_table "inspeccions", force: :cascade do |t|
-    t.date "periodicity"
+    t.date "date"
     t.bigint "contractor_id"
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -136,6 +138,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   add_foreign_key "check_list_items", "check_lists"
   add_foreign_key "check_lists", "contractors"
   add_foreign_key "contractor_types", "contractors"
+  add_foreign_key "contractors", "users"
   add_foreign_key "inspeccions", "contractors"
   add_foreign_key "inspeccions", "projects"
   add_foreign_key "projects", "users"

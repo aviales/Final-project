@@ -1,6 +1,6 @@
 class ContractorTypesController < ApplicationController
   before_action :set_contractor_type, only: %i[ show edit update destroy ]
-
+  before_action :set_contractor, only: %i[ show edit update destroy ]
   # GET /contractor_types or /contractor_types.json
   def index
     @contractor_types = ContractorType.all
@@ -21,14 +21,14 @@ class ContractorTypesController < ApplicationController
 
   # POST /contractor_types or /contractor_types.json
   def create
-    @contractor_type = ContractorType.new(contractor_type_params)
-
+    @contractor_type = ContractorType.new(contractor_type_params.merge(contractor: set_contractor))
+    
     respond_to do |format|
       if @contractor_type.save
         format.html { redirect_to @contractor_type, notice: "Contractor type was successfully created." }
         format.json { render :show, status: :created, location: @contractor_type }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @contractor_type.errors, status: :unprocessable_entity }
       end
     end
@@ -41,7 +41,7 @@ class ContractorTypesController < ApplicationController
         format.html { redirect_to @contractor_type, notice: "Contractor type was successfully updated." }
         format.json { render :show, status: :ok, location: @contractor_type }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @contractor_type.errors, status: :unprocessable_entity }
       end
     end
@@ -59,7 +59,10 @@ class ContractorTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contractor_type
-      @contractor_type = ContractorType.find(params[:id])
+      @contractor_type = ContractorType.includes(params[:contractor_id])
+    end
+    def set_contractor
+      @contractor = Contractor.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

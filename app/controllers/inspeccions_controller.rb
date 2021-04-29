@@ -73,7 +73,7 @@ class InspeccionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inspeccion_params
-      params.require(:inspeccion).permit(:periodicity, :dob)
+      params.require(:inspeccion).permit(:id)
     end
     
 end
