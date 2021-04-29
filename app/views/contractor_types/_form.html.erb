@@ -16,6 +16,12 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="field">
+    <%= form.label :contractor %>
+    <%= form.select :contractor_id, options_from_collection_for_select(@contractor, :id, :name)%>
+  </div>
+  
+
   <div class="actions">
     <%= form.submit %>
   </div>

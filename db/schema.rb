@@ -68,9 +68,11 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
     t.date "date"
     t.string "hazard_type"
     t.bigint "contractor_id"
+    t.bigint "inspeccion_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["contractor_id"], name: "index_check_lists_on_contractor_id"
+    t.index ["inspeccion_id"], name: "index_check_lists_on_inspeccion_id"
   end
 
   create_table "contractor_types", force: :cascade do |t|
@@ -137,6 +139,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "check_list_items", "check_lists"
   add_foreign_key "check_lists", "contractors"
+  add_foreign_key "check_lists", "inspeccions"
   add_foreign_key "contractor_types", "contractors"
   add_foreign_key "contractors", "users"
   add_foreign_key "inspeccions", "contractors"

@@ -1,10 +1,10 @@
 class InspeccionsController < ApplicationController
   before_action :set_inspeccion, only: %i[ show edit update destroy ]
   before_action :authorize_admin!, except: [:index, :new, :create ]
-  before_action :set_project, only: %i[ show edit update destroy new ]
+  before_action :set_project  
   # GET /inspeccions or /inspeccions.json
   def index
-      @inspeccions = Inspeccion.all
+      @inspeccions = @project.inspeccions.order(:date)
   end
 
   # GET /inspeccions/1 or /inspeccions/1.json
@@ -18,7 +18,6 @@ class InspeccionsController < ApplicationController
 
   # GET /inspeccions/1/edit
   def edit
-    @inspeccion = inspeccion_url.when(available: true).order("date")
     @inspeccion.check_list.build
   end
 
@@ -28,7 +27,7 @@ class InspeccionsController < ApplicationController
 
     respond_to do |format|
       if @inspeccion.save
-        format.html { redirect_to @inspeccion, notice: "Inspeccion was successfully created." }
+        format.html { redirect_to project_inspeccions_path, notice: "Inspeccion was successfully created." }
         format.json { render :show, status: :created, location: @inspeccion }
       else
         format.html { render :new }
@@ -62,7 +61,7 @@ class InspeccionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inspeccion
-      @inspeccion = Inspeccion.find(params[:id])
+      @inspeccion = Inspeccion.find(params[:contractor_id])
     end
 
     def set_project
@@ -73,7 +72,7 @@ class InspeccionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inspeccion_params
-      params.require(:inspeccion).permit(:id)
+      params.require(:inspeccion).permit(:id, :date, :project_id, :contractor_id)
     end
     
 end

@@ -21,6 +21,11 @@
     <%= form.text_field :text %>
   </div>
 
+  <div class="field">
+    <%= form.label :check_list %>
+    <%= form.select :check_list_id, options_from_collection_for_select(@check_list, :id, :hazard_type)%>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

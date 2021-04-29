@@ -8,6 +8,7 @@
      <th scope="col">Name</th>
       <th scope="col">Contractor type</th>
       <th scope="col">Inspeccion</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -15,9 +16,8 @@
     <% @contractors.each do |contractor| %>
        <tr class="text-center">
         <td><%= contractor.name %></td>
-        <td><%= contractor.contractor_types %></td>
-        <td><%= contractor.inspeccions %></td>
-        <td  class="text-left" ><%= contractor.contractor_types.order(:name).map{|s|}.join(', ') %></td>
+        <td><%= contractor.contractor_types.map {|c| c.name}.join(", ") %></td>
+        <td><%= contractor.inspeccions.map {|contractor| contractor.date}.join(", ") %></td>
         <td><%= link_to 'Show', contractor %></td>
         <td><%= link_to 'Edit', edit_contractor_path(contractor) %></td>
         <td><%= link_to 'Destroy', contractor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
