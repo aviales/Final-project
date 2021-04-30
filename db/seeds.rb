@@ -31,3 +31,4 @@ end
       puts "Se ha creado un contratista"                
 end
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

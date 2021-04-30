@@ -28,10 +28,10 @@ body {
 }
 /* changes on the icon logo */
 .logo {
-  background-size:90px 30px;
-  width:90px;
-  margin-left:-45px;
-  height:30px;
+  background-size:120px 40px;
+  width:200px;
+  margin-inline-start: auto;
+  height:80px;
 }
 
 .avatar-img {

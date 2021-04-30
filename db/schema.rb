@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_050757) do
+ActiveRecord::Schema.define(version: 2021_04_30_223300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -68,9 +82,11 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
     t.integer "document_version", null: false
     t.string "hazard_type", null: false
     t.bigint "contractor_id"
+    t.bigint "inspeccion_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["contractor_id"], name: "index_check_lists_on_contractor_id"
+    t.index ["inspeccion_id"], name: "index_check_lists_on_inspeccion_id"
   end
 
   create_table "contractor_types", force: :cascade do |t|
@@ -82,22 +98,17 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   end
 
   create_table "contractors", force: :cascade do |t|
-
-
     t.string "name", null: false
     t.bigint "user_id", null: false
-
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_contractors_on_user_id"
   end
 
   create_table "inspeccions", force: :cascade do |t|
-
-
     t.date "date", null: false
-
     t.bigint "contractor_id"
-    t.bigint "project_id"
+    t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["contractor_id"], name: "index_inspeccions_on_contractor_id"
@@ -106,12 +117,9 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
 
   create_table "projects", force: :cascade do |t|
     t.string "name", null: false
-
-
     t.date "start_date", null: false
     t.date "finish_date", null: false
     t.integer "periodicity", default: 0
-
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -145,7 +153,9 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "check_list_items", "check_lists"
   add_foreign_key "check_lists", "contractors"
+  add_foreign_key "check_lists", "inspeccions"
   add_foreign_key "contractor_types", "contractors"
+  add_foreign_key "contractors", "users"
   add_foreign_key "inspeccions", "contractors"
   add_foreign_key "inspeccions", "projects"
   add_foreign_key "projects", "users"
