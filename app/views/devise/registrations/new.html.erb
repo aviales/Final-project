@@ -12,6 +12,11 @@
       <%= f.text_field :first_name, autofocus: true, autocomplete: "Firstname" %>
     </div>
 
+     <div class="field registration">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name, autocomplete: "Firstname" %>
+    </div>
+
     <div class="field registration">
       <%= f.label :email %><br />
       <%= f.email_field :email, autocomplete: "email" %>

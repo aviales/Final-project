@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  #resources :users, only: [:index, :show, :new]
+ 
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :work_areas
   resources :check_list_items
   resources :check_lists
@@ -9,7 +12,6 @@ Rails.application.routes.draw do
   end
   resources :contractors
   
-  devise_for :admin_users
   devise_for :users
   root'home#index'
   devise_scope :user do
