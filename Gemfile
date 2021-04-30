@@ -62,4 +62,6 @@ gem 'kaminari'
 gem "font-awesome-rails"
 
 gem 'rails-erd', group: :development
-
+gem 'jquery-rails'
+gem 'momentjs-rails'
+gem 'bootstrap-daterangepicker-rails'

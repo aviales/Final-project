@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<h1 class="text-center mt-5 mb-2">Projects</h1>
 
-<table>
+<table class="table table-index">
   <thead class="thead-dark">
     <tr class="text-center">
      <th scope="col">Name</th>
@@ -16,8 +16,8 @@
     <% @projects.each do |project| %>
       <tr class="text-center">
         <td><%= project.name %></td>
-        <td><%= project.startdate %></td>
-        <td  class="text-left"><%= project.order(:startdate).map{|s|}.join(', ') %>
+        <td><%= project.start_date %></td>
+        <td><%= project.finish_date %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
