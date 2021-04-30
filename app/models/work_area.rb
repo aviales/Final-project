@@ -1,3 +1,3 @@
 class WorkArea < ApplicationRecord
-  belongs_to :CheckList
+  belongs_to :check_lists, :optional => true
 end

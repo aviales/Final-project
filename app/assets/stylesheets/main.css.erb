@@ -1,7 +1,10 @@
 
  footer {
+  position: absolute;
   text-align: right;
-  background:#464747;
+  background-color: grey;
+  margin-top: 50px;
+  width: 100%;
   height: 70px;
   font-family: 'Raleway', sans-serif;
   color: white;
@@ -20,17 +23,21 @@
 
 body{
   margin: 0 auto;
-  background-image: url(<%= asset_path '' %>);
+  background-image: url(<%= asset_path 'hard-hat' %>);
   background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
+  background-color: transparent;
 }
 h1{
   font-family: 'Roboto', sans-serif;
   color: black;
+  background-color: white;
+  display: inline-block; 
 }
 p{
   color: black;
+
 }
 .btn{
   background-color: rgba(68, 67, 68, 0.9);
@@ -48,9 +55,17 @@ p{
 ul li{
   text-decoration: none;
   list-style-type: none;
+
 }
 a{
   color: black;
   margin: 0 auto;
 }
-
+#table {
+  color: black;
+  margin: 20 auto;
+  word-spacing: 85pt; 
+  line-height: 80pt;
+  background-color: white;
+  display: inline-block; 
+}

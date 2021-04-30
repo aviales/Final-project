@@ -11,23 +11,23 @@
     </div>
   <% end %>
   <div >
-<h5>Puts Projects info:</h5>
+<h5 style="color:white">Puts Projects info:</h5>
 </div>
 
-  <div class="field">
+  <div class="field" style="color:white">
     <%= form.label :name %>
     <%= form.text_field :name, id: :project_name  %>
   </div>
 
-<div class="field">
+<div class="field" style="color:white">
     <%= form.label :start_date %>
     <%= form.date_select :start_date %>
 </div>
-<div class="field">
+<div class="field" style="color:white">
     <%= form.label :finish_date %>
     <%= form.date_select :finish_date %>
 </div>
-<div class="field">
+<div class="field" style="color:white">
   <%= check_box_tag(:periodicity) %>
   <%= label_tag(:periodicity, "Once a week inspeccion") %>
   <%= check_box_tag(:periodicity) %>

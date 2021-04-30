@@ -3,11 +3,12 @@ class CheckListsController < ApplicationController
   before_action :authenticate_user!, except: %i[ index search ]
   # GET /check_lists or /check_lists.json
   def index
-    @check_lists = CheckList.all.order(:date)
+    @check_lists = CheckList.all.order(:document_version)
   end
 
   # GET /check_lists/1 or /check_lists/1.json
   def show
+  
   end
 
   # GET /check_lists/new
@@ -26,6 +27,8 @@ class CheckListsController < ApplicationController
   # POST /check_lists or /check_lists.json
   def create
     @check_list = CheckList.new(check_list_params)
+    @inspeccion = Inspeccion.all
+
 
     respond_to do |format|
       if @check_list.save
@@ -63,7 +66,7 @@ class CheckListsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_check_list
-      @check_list = CheckList.includes(params[:inspeccio_id])
+      @check_list = CheckList.find(params[:id])
       
     end
     def set_inspeccion
@@ -71,6 +74,6 @@ class CheckListsController < ApplicationController
     end
     # Only allow a list of trusted parameters through.
     def check_list_params
-      params.require(:check_list).permit(:date, :hazard_type, :inspeccion_id)
+      params.require(:check_list).permit(:document_version, :hazard_type, :inspeccion_id)
     end
 end
