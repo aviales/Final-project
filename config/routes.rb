@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   resources :contractors
   
-  devise_for :admin_users
+  # devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
   root'home#index'
   devise_scope :user do
