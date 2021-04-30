@@ -12,6 +12,11 @@
       <%= f.text_field :first_name, autofocus: true, autocomplete: "Firstname" %>
     </div>
 
+     <div class="field registration">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name, autocomplete: "Firstname" %>
+    </div>
+
     <div class="field registration">
       <%= f.label :email %><br />
       <%= f.email_field :email, autocomplete: "email" %>
@@ -32,7 +37,7 @@
 
     <div class="field registration">
       <%= f.label :profile_picture %><br />
-      <%= f.text_field :profile_picture, autocomplete: "profile picture" %>
+      <%= f.file_field :profile_picture, autocomplete: "profile picture" %>
     </div>
 
     <div class="actions">

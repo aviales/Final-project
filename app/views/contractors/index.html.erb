@@ -2,25 +2,25 @@
 
 <h1>Contractors</h1>
 
-<table>
+<table class= "contractors">
  <thead class="thead-dark">
     <tr class="text-center">
      <th scope="col">Name</th>
       <th scope="col">Contractor type</th>
       <th scope="col">Inspeccion</th>
+      <th colspan="4">Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @contractors.each do |contractor| %>
        <tr class="text-center">
-        <td><%= contractor.name %></td>
-        <td><%= contractor.contractor_type %></td>
-        <td><%= contractor.inspeccion %></td>
-        <td  class="text-left"><%= contractor.contractor_type.order(:name).map{|s|}.join(', ') %>
-        <td><%= link_to 'Show', contractor %></td>
-        <td><%= link_to 'Edit', edit_contractor_path(contractor) %></td>
-        <td><%= link_to 'Destroy', contractor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="color:white"><%= contractor.name %></td>
+        <td style="color:white"><%= contractor.contractor_types.map {|c| c.name}.join(", ") %></td>
+        <td style="background-color:white"><%= contractor.inspeccions.map {|contractor| contractor.date}.join(", ") %></td>
+        <td style="background-color:white"><%= link_to 'Show', contractor %></td>
+        <td style="background-color:white"><%= link_to 'Edit', edit_contractor_path(contractor) %></td>
+        <td style="background-color:white"><%= link_to 'Destroy', contractor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,5 +31,5 @@
 
 <%= link_to '<button type="button" class="btn btn-dark">New contractor</button>'.html_safe, new_contractor_path %>
 <%= link_to '<button type="button" class="btn btn-dark">Contractor types List</button>'.html_safe, contractor_types_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Checklist </button>'.html_safe, checklists_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Inspeccion type </button>'.html_safe, inspeccions_path %>
+<%= link_to '<button type="button" class="btn btn-dark">Checklist </button>'.html_safe, check_lists_path %>
+<%#= link_to '<button type="button" class="btn btn-dark">Inspeccion type </button>'.html_safe, project_inspeccions_path %>

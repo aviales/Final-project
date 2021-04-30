@@ -1,4 +1,4 @@
-<%= form_with(model: inspeccion) do |form| %>
+<%= form_with(model: [@project, inspeccion]) do |form| %>
   <% if inspeccion.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(inspeccion.errors.count, "error") %> prohibited this inspeccion from being saved:</h2>
@@ -10,13 +10,22 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :periodicity %>
-    <%= form.date_select :periodicity %>
+  <div >
+    <h5 style="color:white">Puts Inspeccions info:</h5>
   </div>
+
+  <div class="field" style="color:white">
+    <%= form.label :contractor_id %>
+    <%= form.select :contractor_id, Contractor.pluck( :name, :id ) %>
+  </div>
+    <div class="field"style="color:white" >
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+  
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-success' %>
   </div>
+
 <% end %>

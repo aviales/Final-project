@@ -1,14 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @check_list.date %>
+<p style="color:white">
+  <strong>document version:</strong>
+  <%= @check_list.document_version %>
 </p>
 
-<p>
+<p style="color:white">
   <strong>Hazard type:</strong>
   <%= @check_list.hazard_type %>
 </p>
+<h2>check_list_item</h2>
+
+<% if @check_list.check_list_item.any? %>
+	    <ul>
+		    <% @check_list.check_list_item.each do |item| %>
+		      <li><%= link_to item, item %></li> 
+	      <% end %>
+    	</ul>
+<% else %>
+	      <p>no hay check_list_item</p>
+<% end %>
 
 <%= link_to 'Edit', edit_check_list_path(@check_list) %> |
 <%= link_to 'Back', check_lists_path %>
