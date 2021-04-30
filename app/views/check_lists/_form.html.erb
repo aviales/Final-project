@@ -13,7 +13,7 @@
 
   <div class="field" style="color:white">
     <%= form.label :version %>
-    <%= form.date_select :document_version %>
+    <%= form.number_field :document_version %>
   </div>
 
   <div class="field" style="color:white">
@@ -25,6 +25,19 @@
     <%= form.label :inspeccion %>
     <%= form.select :inspeccion_id, options_from_collection_for_select(@inspeccion, :id, :date)%>
   </div>
+
+   <h2>Check list Items</h2>
+
+  <%= f.fields_for :check_list_items do | item | %>
+    <div class="check_list_item_fields">
+      <div class="fields">
+        <%= item.label :hazard_type, "Tipos de peligro" %><br>
+        <%= item.text_field :hazard_type %>
+         <%= item.check_box :_destroy %>
+        <%= item.label :_destroy, "Borrar" %>
+      </div>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
