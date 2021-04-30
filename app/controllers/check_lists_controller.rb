@@ -1,5 +1,6 @@
 class CheckListsController < ApplicationController
   before_action :set_check_list, only: %i[ show edit update destroy ]
+  before_action :set_check_list_item, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[ index search ]
   # GET /check_lists or /check_lists.json
   def index
@@ -15,6 +16,7 @@ class CheckListsController < ApplicationController
   def new
     @check_list = CheckList.new
     @inspeccion = Inspeccion.all
+    @check_list.check_list_items.build
     
     
   end
@@ -72,8 +74,12 @@ class CheckListsController < ApplicationController
     def set_inspeccion
       @inspeccion = Inspeccion.find(params[:inspeccion_id])
     end
+
+    def check_list_items
+      @check_list_items = CheckListItems.all
+    end
     # Only allow a list of trusted parameters through.
     def check_list_params
-      params.require(:check_list).permit(:document_version, :hazard_type, :inspeccion_id)
+      params.require(:check_list).permit(:document_version, :hazard_type, :inspeccion_id, check_list_items_attributes: [:id, :hazard_type, :destroy])
     end
 end
