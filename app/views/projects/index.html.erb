@@ -15,13 +15,13 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr class="text-center">
-        <td><%= project.name %></td>
-        <td><%= project.start_date %></td>
-        <td><%= project.finish_date %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to "Inspeccion date", project_inspeccions_path(project.id) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="color:white"><%= project.name %></td>
+        <td style="color:white"><%= project.start_date %></td>
+        <td style="color:white"><%= project.finish_date %></td>
+        <td style="background-color:white"><%= link_to 'Show', project %></td>
+        <td style="background-color:white"><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td style="background-color:white"><%= link_to "Inspeccion date", project_inspeccions_path(project.id) %></td>
+        <td style="background-color:white"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

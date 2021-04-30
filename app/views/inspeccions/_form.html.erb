@@ -11,14 +11,14 @@
     </div>
   <% end %>
   <div >
-    <h5>Puts Inspeccions info:</h5>
+    <h5 style="color:white">Puts Inspeccions info:</h5>
   </div>
 
-  <div class="field">
+  <div class="field" style="color:white">
     <%= form.label :contractor_id %>
     <%= form.select :contractor_id, Contractor.pluck( :name, :id ) %>
   </div>
-    <div class="field">
+    <div class="field"style="color:white" >
     <%= form.label :date %>
     <%= form.date_select :date %>
   </div>

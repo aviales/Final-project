@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" style="color:white">
     <%= form.label :version %>
     <%= form.date_select :date %>
   </div>
 
-  <div class="field">
+  <div class="field" style="color:white">
     <%= form.label :hazard_type %>
     <%= form.text_field :hazard_type %>
   </div>
 
-  <div class="field">
+  <div class="field" style="color:white">
     <%= form.label :inspeccion %>
     <%= form.select :inspeccion_id, options_from_collection_for_select(@inspeccion, :id, :date)%>
   </div>

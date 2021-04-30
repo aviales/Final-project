@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" style="color:white">
     <%= form.label :value %>
     <%= form.text_field :value %>
   </div>
 
-  <div class="field">
+  <div class="field" style="color:white">
     <%= form.label :text %>
     <%= form.text_field :text %>
   </div>
 
-  <div class="field">
+  <div class="field" style="color:white">
     <%= form.label :check_list %>
     <%= form.select :check_list_id, options_from_collection_for_select(@check_list, :id, :hazard_type)%>
   </div>
