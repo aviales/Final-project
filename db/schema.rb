@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   end
 
   create_table "check_list_items", force: :cascade do |t|
-    t.boolean "value"
-    t.string "text"
+    t.boolean "value", null: false
+    t.string "text", null: false
     t.bigint "check_list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   end
 
   create_table "check_lists", force: :cascade do |t|
-    t.date "date"
-    t.string "hazard_type"
+    t.integer "document_version", null: false
+    t.string "hazard_type", null: false
     t.bigint "contractor_id"
     t.bigint "inspeccion_id"
     t.datetime "created_at", precision: 6, null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   end
 
   create_table "contractor_types", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.bigint "contractor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   end
 
   create_table "contractors", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   end
 
   create_table "inspeccions", force: :cascade do |t|
-    t.date "date"
+    t.date "date", null: false
     t.bigint "contractor_id"
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -103,8 +103,8 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
 
   create_table "projects", force: :cascade do |t|
     t.string "name", null: false
-    t.date "start_date"
-    t.date "finish_date"
+    t.date "start_date", null: false
+    t.date "finish_date", null: false
     t.integer "periodicity", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_050757) do
   end
 
   create_table "work_areas", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.bigint "check_list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

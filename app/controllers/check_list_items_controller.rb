@@ -1,6 +1,6 @@
 class CheckListItemsController < ApplicationController
   before_action :set_check_list_item, only: %i[ show edit update destroy ]
-
+  before_action :set_check_list, only: %i[ show edit update destroy ]
   # GET /check_list_items or /check_list_items.json
   def index
     @check_list_items = CheckListItem.all.order(:value)
@@ -13,16 +13,18 @@ class CheckListItemsController < ApplicationController
   # GET /check_list_items/new
   def new
     @check_list_item = CheckListItem.new
-    @check_lists = CheckList.all
+    @check_list = CheckList.all
   end
 
   # GET /check_list_items/1/edit
   def edit
+    @CheckList.build
   end
 
   # POST /check_list_items or /check_list_items.json
   def create
     @check_list_item = CheckListItem.new(check_list_item_params)
+    @check_list = CheckList.all
 
     respond_to do |format|
       if @check_list_item.save
@@ -62,7 +64,11 @@ class CheckListItemsController < ApplicationController
     def set_check_list_item
       @check_list_item = CheckListItem.find(params[:id])
     end
-
+    
+    def set_check_list
+      @check_list = CheckList.find(params[:id])
+      
+    end
     # Only allow a list of trusted parameters through.
     def check_list_item_params
       params.require(:check_list_item).permit(:value, :text, :check_list_id)
