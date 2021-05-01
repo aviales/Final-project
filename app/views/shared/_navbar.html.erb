@@ -1,5 +1,5 @@
 <div>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
     <%= link_to root_path do %>
         <span class="sr-only">Workflow</span>
         <%= image_tag "safety_sol.png", alt: "logo", class: "logo h-8 w-auto sm:h-10" %>
@@ -10,8 +10,8 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item login mr-3">
-                <%= link_to 'Projects', projects_path, class: "px-5 mx-5 whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900" %>
-                <%= link_to 'Contractors', contractors_path, class: "px-5 mx-5 whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900" %>
+                <%= link_to 'Projects', projects_path, class: "px-5 mx-5 whitespace-nowrap text-base font-medium text-white-500 hover:text-white-900" %>
+                <%= link_to 'Contractors', contractors_path, class: "px-5 mx-5 whitespace-nowrap text-base font-medium text-white-500 hover:text-white-900" %>
             </li>
             <li class="nav-item login mr-3">
                 <% if user_signed_in? %>
