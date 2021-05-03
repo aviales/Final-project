@@ -6,6 +6,7 @@
 
 .top-header .navbar {
     padding: 5px 0px;
+    
 }
 
 .top-header {
@@ -19,6 +20,7 @@
     background-repeat: no-repeat;
     background-color: rgb(255, 81, 0);
     background-size: auto 100%;
+    
     
 }
 
@@ -35,6 +37,7 @@
 a.navbar-brand {
     left: 35px;
     position: relative;
+   
 }
 
 a.navbar-brand img {
@@ -61,6 +64,7 @@ a.navbar-brand img {
 
 .top-header .navbar .navbar-collapse ul li {
     margin: 0 2px;
+    
   
 }
 
@@ -138,7 +142,7 @@ a.navbar-brand img {
 
 .top-header #navbar-wd {
     padding-right: 100px;
-    margin-top: -60px;
+    margin-top: -40px;
 }
 
 .search-btn {

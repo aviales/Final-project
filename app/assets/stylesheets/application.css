@@ -31,7 +31,7 @@ body {
   background-size:120px 40px;
   width:200px;
   margin-inline-start: auto;
-  height:80px;
+  height:40px;
 }
 
 .avatar-img {
@@ -189,10 +189,11 @@ a {
   font-size: 1.1rem;
 }
 
-/*------------------------------------------------------------------ HEADER -------------------------------------------------------------------*/
+/*-----------------------------------si funciona el nav var------------------------------- HEADER -------------------------------------------------------------------*/
 div {
   margin-bottom: 10px;
   position: relative;
+  height: -30px;
 }
 
 input[type="number"] {
