@@ -13,15 +13,16 @@ import "channels"
 import JQuery from 'jquery';
 window.$ = window.JQuery = JQuery;
 
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel'
+// import 'owl.carousel/dist/assets/owl.carousel.css';
+// import 'owl.carousel'
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+console.log('hella')
 
-.addEventListener('DOMContentLoaded',() =>{
+addEventListener('DOMContentLoaded',() =>{
     const btn_menu = document.querySelector('.btn_menu')
     if (btn_menu){
         btn_menu.addEventListener('click',()=>{
