@@ -68,3 +68,4 @@ gem 'momentjs-rails'
 gem 'bootstrap-daterangepicker-rails'
 gem 'active_date_range'
 gem 'activeadmin'
+gem "cocoon"

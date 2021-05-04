@@ -11,9 +11,9 @@
 </p>
 <h2>check_list_item</h2>
 
-<% if @check_list.check_list_item.any? %>
+<% if @check_list.check_list_items.any? %>
 	    <ul>
-		    <% @check_list.check_list_item.each do |item| %>
+		    <% @check_list.check_list_items.each do |item| %>
 		      <li><%= link_to item, item %></li> 
 	      <% end %>
     	</ul>

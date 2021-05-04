@@ -1,4 +1,4 @@
-<%= form_with(model: check_list) do |form| %>
+<%= form_with(model: check_list, local: false) do |form| %>
   <% if check_list.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(check_list.errors.count, "error") %> prohibited this check_list from being saved:</h2>
@@ -27,14 +27,23 @@
   </div>
 
    <h2>Check list Items</h2>
-
-  <%= f.fields_for :check_list_items do | item | %>
-    <div class="check_list_item_fields">
+ 
+  <%= form.fields_for :check_list_items do | item | %>
+    <div class="check_list_items_fields">
       <div class="fields">
-        <%= item.label :hazard_type, "Tipos de peligro" %><br>
-        <%= item.text_field :hazard_type %>
-         <%= item.check_box :_destroy %>
-        <%= item.label :_destroy, "Borrar" %>
+        <%= item.label "Descripción" %><br>
+        <%= item.text_field :text %>
+      </div>
+    </div>
+  <% end %>
+
+   <h2>work areas </h2>
+ 
+  <%= form.fields_for :work_areas do | area | %>
+    <div class="work_areas_fields">
+      <div class="fields">
+        <%= area.label "Lugar de Inspeccion" %><br>
+        <%= area.text_field :name %>
       </div>
     </div>
   <% end %>

@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2021_04_30_223300) do
   end
 
   create_table "check_list_items", force: :cascade do |t|
-    t.boolean "value", null: false
+    t.boolean "value", default: false, null: false
     t.string "text", null: false
     t.bigint "check_list_id"
     t.datetime "created_at", precision: 6, null: false
