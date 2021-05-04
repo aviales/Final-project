@@ -5,7 +5,7 @@
   <div class="carousel" id="carousel">
     <div class="carousel-wrap">
       <div class="carousel-stage" id="carousel-stage">
-        <% @blocks.each do |block| %>
+        <% @blocks.each.with_index do |block| %>
           <div class="carousel-item">
             <%= image_url =  block[:images][Random.new.rand(0..block[:images].length - 1)] %>
             <p class="title"><%= block[:title] %></p>
