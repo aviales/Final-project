@@ -27,13 +27,8 @@
   width: 100%;
 } */
 /* changes on the icon logo */
-<<<<<<< HEAD
-.logo {
-  background-size:120px 40px;
-  width:200px;
-  margin-inline-start: auto;
-  height:40px;
-}
+
+
 
 .avatar-img {
   width: 2rem;
@@ -190,31 +185,3 @@ a {
   font-size: 1.1rem;
 }
 
-/*-----------------------------------si funciona el nav var------------------------------- HEADER -------------------------------------------------------------------*/
-div {
-  margin-bottom: 10px;
-  position: relative;
-  height: -30px;
-}
-
-input[type="number"] {
-  width: 100px;
-}
-
-input + span {
-  padding-right: 30px;
-}
-
-input:invalid+span:after {
-  position: absolute;
-  content: '✖';
-  padding-left: 5px;
-}
-
-input:valid+span:after {
-  position: absolute;
-  content: '✓';
-  padding-left: 5px;
-}
-=======
->>>>>>> 181228ddca29c709a4d704c80b4a461b7056967f
