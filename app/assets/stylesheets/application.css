@@ -16,17 +16,18 @@
  */
  
 
- * {
+ /* * {
   box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
   margin: 0;
   padding: 0;
   border: 0;
   width: 100%;
-}
+} */
 /* changes on the icon logo */
+<<<<<<< HEAD
 .logo {
   background-size:120px 40px;
   width:200px;
@@ -215,3 +216,5 @@ input:valid+span:after {
   content: '✓';
   padding-left: 5px;
 }
+=======
+>>>>>>> 181228ddca29c709a4d704c80b4a461b7056967f

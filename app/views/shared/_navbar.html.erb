@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <div>
 <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white fixed-top">
+=======
+<div class="relative bg-white">
+<nav class="navbar_menu">
+>>>>>>> 181228ddca29c709a4d704c80b4a461b7056967f
     <%= link_to root_path do %>
         <span class="sr-only">Workflow</span>
         <%= image_tag "safety_sol.png", alt: "logo", class: "logo h-8 w-auto sm:h-10" %>
@@ -7,6 +12,7 @@
 
   
 
+<<<<<<< HEAD
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item login mr-3">
@@ -14,24 +20,36 @@
                 <%= link_to 'Contractors', contractors_path, class: "px-5 mx-5 whitespace-nowrap text-base font-medium text-white-500 hover:text-white-900" %>
             </li>
             <li class="nav-item login mr-3">
-                <% if user_signed_in? %>
-                    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %>
-                <% else %>
-                    <%= link_to 'Login', new_user_session_path, class: "nav-link" %>
-                <% end %>
-            </li>
+=======
+    <!-- <div class="collapse navbar-collapse" id="navbarNav"> -->
+        <ul class="navbar_menu_items">
             <li class="nav-item">
+                <%= link_to 'Projects', projects_path, class: "a" %>
+                <%= link_to 'Contractors', contractors_path, class: "a" %>
+                
+>>>>>>> 181228ddca29c709a4d704c80b4a461b7056967f
+                <% if user_signed_in? %>
+                    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "a" %>
+                <% else %>
+                    <%= link_to 'Login', new_user_session_path, class: "a" %>
+                <% end %>
+
                 <% if current_user %>
                     <%= link_to(edit_user_registration_path) do %>
                     <% if current_user.profile_picture.attached?  %>
                         <%= image_tag(current_user.profile_picture, class: 'avatar-img') %>
                      <% end %>
                     <% end %>
-              <% end %>
+                <% end %>
             </li>
+            
+            
         </ul>
-    </div>
+      <span class="btn_menu">
+          <i class="fa fa-bars"></i>
+      </span>
 </nav>
+      
      <!--
     Mobile menu, show/hide based on mobile menu state.
 
