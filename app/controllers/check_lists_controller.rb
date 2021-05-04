@@ -19,10 +19,10 @@ class CheckListsController < ApplicationController
     @work_area = WorkArea.new
     @inspeccion = Inspeccion.all
     @check_list = CheckList.new
-    4.times do
+    10.times do
       @check_list.check_list_items.build
       1.times do
-        @check_list_item.work_areas.build
+        #@check_list_item.work_areas.build
       end
     end
     
@@ -90,7 +90,7 @@ class CheckListsController < ApplicationController
       @check_list_item = CheckListItem.all
     end
 
-    def work_areas
+    def set_work_area
       @work_area = WorkArea.all
     end
     # Only allow a list of trusted parameters through.
