@@ -31,8 +31,7 @@
 
 
 body{
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
- 
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif; 
   background-image: url(<%= asset_path 'hard-hat' %>);
   background-size: cover; 
 	background-position: center;
@@ -41,11 +40,13 @@ body{
 } 
 
 .logo {
-  background-size:120px 40px;
+  
   width:100px;
   /* margin-inline-start: auto; */
   height:80px;
-  padding: 0 80px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
 }
 
 .navbar_menu{
@@ -98,9 +99,14 @@ ul.show {
 }
 
 @media screen and (max-width: 952px){
-  .logo {
-    font-size: 30px;
-    padding-left: 35px;
+  .logo{
+    position:fixed; top:0; left:20;
+  }
+  .logo, .avatar-img {
+    
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
   }
   .navbar_menu_items li .an{
     font-size: 16px;
@@ -139,12 +145,7 @@ ul.show {
   .navbar_menu_items li .an:hover {
     color: rgb(133, 45, 50);
   }
-  .logo{
-    font-size: 25px;
-    width:25px;
-    height: 25;
-    padding-left: 35px;
-  }
+  
 }
 
 @media screen and (max-width: 858px) and (orientation: landscape){
@@ -158,9 +159,9 @@ ul.show {
 }
 
 .avatar-img {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100%;
 }
 
 
@@ -178,8 +179,7 @@ ul.show {
 
  h1{
   font-family: 'Roboto', sans-serif;
-  color: black;
-  background-color: white;
+  color: white;
   display: inline-block; 
 }
 p{
@@ -218,7 +218,6 @@ a{
 }
 
 footer {
-  position: absolute;
   text-align: right;
   background-color: grey;
   margin-top: 50px;
