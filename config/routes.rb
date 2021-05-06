@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
- 
+  devise_for :users do 
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
   end
   resources :contractors
   
-  devise_for :users
+ 
   root'home#index'
   devise_scope :user do
     authenticated :user do
