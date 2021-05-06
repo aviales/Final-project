@@ -1,0 +1,9 @@
+<% if @contractor.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", contractor: @contractor %>');
+  $('.alert-success').html("El contratista ha sido ingresada con éxito").show();
+  $('#people-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @contractor.errors.full_messages[0] %>');
+<% end %>

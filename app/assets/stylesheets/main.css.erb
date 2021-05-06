@@ -9,7 +9,6 @@
 /*
 .top-header {
   position: absolute;
-
   text-align: right;
   margin-top: 50px;
   width: 100%;
@@ -42,7 +41,7 @@
 }
 */
 
-
+<%# este es el ccss que da margenes a la imagen de fondo /* * */ %>
 body{
   font-family: 'Open Sans', Arial, Helvetica, sans-serif; 
   background-image: url(<%= asset_path 'hard-hat' %>);
@@ -51,15 +50,16 @@ body{
 	background-attachment: fixed;
   background-color: transparent;
 } 
-
+<%# este es el ccss que da margenes al logo /* * */ %>
 .logo {
   
   width:100px;
-  /* margin-inline-start: auto; */
   height:80px;
   position: fixed;
+ padding-left: 0px;
   top: 0px;
-  left: 0px;
+  left: 10px;
+   align-items:left;
 }
 
 .navbar_menu{
@@ -72,11 +72,11 @@ body{
   border-bottom: 1px solid #ffff;
   box-shadow: 5px 0 10px rgba(68, 67, 68, 0.9);
 }
-
+<%# este es el ccss que da distacia a menu goto y login /* * */ %>
 .navbar_menu_items{
   display: flex;
   list-style: none;
-  margin-right: 30px;
+  margin-right: 90px;
 }
 
 .navbar_menu_items li{
@@ -232,12 +232,18 @@ a{
 
 footer {
   text-align: right;
-  background-color: grey;
+  background-color: black;
   margin-top: 50px;
   width: 100%;
   height: 70px;
   font-family: 'Raleway', sans-serif;
   color: white;
 } 
+.footer-icon {
+  top: 0px;
+  left: 0px;
+   width: 100%;
+}
 
-/* mobile changes on media query */
+
+//* mobile changes on media query *//

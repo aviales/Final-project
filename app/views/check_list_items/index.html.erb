@@ -13,7 +13,7 @@
 
   <tbody>
     <% @check_list_items.each do |check_list_item| %>
-      <tr>
+      <tr class="text-center">
         <td style="color:white"><%= check_list_item.value %></td>
         <td style="color:white"><%= check_list_item.text %></td>
         <td style="background-color:white"><%= link_to 'Show', check_list_item %></td>

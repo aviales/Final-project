@@ -39,8 +39,8 @@
 
    <h2>work areas </h2>
  
-  <%= form.fields_for :work_areas do | area | %>
-    <div class="work_areas_fields">
+  <%= form.fields_for :work_area do | area | %>
+    <div class="work_area_fields">
       <div class="fields">
         <%= area.label "Lugar de Inspeccion" %><br>
         <%= area.text_field :name %>

@@ -13,7 +13,11 @@ class InspeccionsController < ApplicationController
 
   # GET /inspeccions/new
   def new
+    @check_list = CheckList.new
     @inspeccion = Inspeccion.new
+    2.times do
+      @inspeccion.check_lists.build
+    end
   end
 
   # GET /inspeccions/1/edit
@@ -68,11 +72,18 @@ class InspeccionsController < ApplicationController
       @project = Project.find(params[:project_id])
     end
 
-
+    def set_check_list
+      @check_list = CheckList.find(params[:id])
+      
+    end
+    
+    def set_check_list
+      @check_list = CheckList.all
+    end
 
     # Only allow a list of trusted parameters through.
     def inspeccion_params
-      params.require(:inspeccion).permit(:id, :date, :project_id, :contractor_id)
+      params.require(:inspeccion).permit(:id, :date, :project_id, :contractor_id, check_lists_attributes: [:hazard_type, :document_version])
     end
     
 end

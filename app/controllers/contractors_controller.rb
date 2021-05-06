@@ -6,7 +6,7 @@ class ContractorsController < ApplicationController
  
   # GET /contractors or /contractors.json
   def index
-    @contractors = Contractor.all
+    @contractors = Contractor.all.order(:name)
   end
 
   # GET /contractors/1 or /contractors/1.json
@@ -15,17 +15,23 @@ class ContractorsController < ApplicationController
 
   # GET /contractors/new
   def new
+    @inspeccion = Inspeccion.all
+    @contractor_type = ContractorType.new
     @contractor = Contractor.new
+    2.times do
+      @contractor.contractor_types.build
+    end 
   end
 
   # GET /contractors/1/edit
   def edit
-    @project.contractor_type.build
+    @contractor.contractor_types.build
   end
 
   # POST /contractors or /contractors.json
   def create
     @contractor = Contractor.new(contractor_params.merge(user: current_user))
+    @inspeccion = Inspeccion.all
 
     respond_to do |format|
       if @contractor.save
@@ -65,13 +71,18 @@ class ContractorsController < ApplicationController
     def set_contractor
       @contractor = Contractor.find(params[:id])
     end
-
-    def set_contractor_type
-      @contractor_type = ContractorType.includes(params[:contractortype_id])
+    def contractor_types
+      @contractor_type = ContractorType.all
     end
 
+    def set_contractor_type
+      @contractor_type = ContractorType.all
+    end
+    def set_inspeccion    
+      @inspeccion = Inspeccion.find(params[:inspeccion_id])
+    end
     # Only allow a list of trusted parameters through.
     def contractor_params
-      params.require(:contractor).permit(:name)
+      params.require(:contractor).permit(:name, :inspeccion_id,contractor_types_attributes: [:id, :name] )
     end
 end
