@@ -10,6 +10,7 @@
 
     <!-- <div class="collapse navbar-collapse" id="navbarNav"> -->
         <ul class="navbar_menu_items">
+
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Menu</a>
                 <div class="dropdown-menu">
@@ -30,6 +31,7 @@
             <li class="center">
                 <% if user_signed_in? %>
                     <%= link_to 'Logout', destroy_user_session_path, method: "delete"  %>
+
                 <% else %>
                     <%= link_to 'Login', new_user_session_path, class: "a" %>
                 <% end %>
@@ -40,9 +42,8 @@
                         <%= image_tag(current_user.profile_picture, class: 'avatar-img') %>
                      <% end %>
                     <% end %>
-                <% end %>
+                <% end %> 
             </li>
-            
             
         </ul>
       <span class="btn_menu">
