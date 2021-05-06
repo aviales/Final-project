@@ -20,8 +20,8 @@
         <td style="color:white"><%= project.start_date %></td>
         <td style="color:white"><%= project.finish_date %></td>
         <td style="background-color:white"><%= link_to 'Show', project %></td>
-        <td style="background-color:white"><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td style="background-color:white"><%= link_to "Inspeccion date", project_inspeccions_path(project.id) %></td>
+        <td style="background-color:white "><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td style="background-color:blue"><%= link_to "Inspeccion ", project_inspeccions_path(project.id) %></td>
         <td style="background-color:white"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

@@ -1,6 +1,6 @@
 class ContractorTypesController < ApplicationController
   before_action :set_contractor_type, only: %i[ show edit update destroy ]
-  
+  before_action :set_contractor, only: %i[ show edit update destroy ]
   # GET /contractor_types or /contractor_types.json
   def index
     @contractor_types = ContractorType.all.order(:name)
@@ -19,11 +19,12 @@ class ContractorTypesController < ApplicationController
 
   # GET /contractor_types/1/edit
   def edit
+    @ontractor.build
   end
   # POST /contractor_types or /contractor_types.json
   def create
     @contractor_type = ContractorType.new(contractor_type_params)
-    
+    @contractor = Contractor.all
     respond_to do |format|
       if @contractor_type.save
         format.html { redirect_to @contractor_type, notice: "Contractor type was successfully created." }
@@ -60,12 +61,15 @@ class ContractorTypesController < ApplicationController
   
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_contractor_type
-      @contractor_type = ContractorType.includes(params[:contractor_id])
+    def contractor_type
+      @contractor_type = ContractorType.find(params[:id])
+    end
+    def set_contractor_types
+      @contractor_type = ContractorType.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def contractor_type_params
-      params.require(:contractor_type).permit(:name, :contractor_id)
+      params.require(:contractor_type).permit(:name,:name, :contractor_id)
     end
 end

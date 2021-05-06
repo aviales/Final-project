@@ -16,6 +16,29 @@
     <%= form.text_field :name %>
   </div>
 
+  <h2>Contractor types</h2>
+ 
+  <%= form.fields_for :contractor_types do | type | %>
+    <div class="contractor_types_fields">
+      <div class="fields">
+        <%= type.label "Type" %><br>
+        <%= type.text_field :name %>
+      </div>
+    </div>
+  <% end %>
+
+   <%= form_for @contractor, remote: true do |f| %>
+   <div class="modal-body">
+          <div class="alert alert-danger" role="alert" style="display: none;"></div>
+            <%= f.select :contractor_type_id, options_for_select(Contractor_type.all.collect { |t| [t.name, t.id]}), {}, class: "form-group form-control custom-select shadow" %>
+          </div>
+        <div class="modal-footer">
+          <%= f.submit class: "btn btn-success btn-sm shadow", title: "Agregar contratista" %>
+        </div>
+      <% end %>
+    </div>
+
+    
   <div class="actions">
     <%= form.submit %>
   </div>

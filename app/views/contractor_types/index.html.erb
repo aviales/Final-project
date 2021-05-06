@@ -1,12 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Contractor Types</h1>
-
-
-<div style="background-image: url(<%= asset_path 'banner5.jpg' %>)">
-  <h3> This is a test sent from </h3>
-</div>
-<table>
+<h1 class="text-center mt-5 mb-2">Contractor Types</h1>
+<table class="table table-index">
   <thead class="thead-dark">
     <tr class="text-center">
      <th scope="col" class="types">Types</th>
@@ -14,20 +9,23 @@
     </tr>
   </thead>
 
+ 
+    <h3 style="color:blue"> Contractor types info: </h3>
+
   <tbody>
     <% @contractor_types.each do |contractor_type| %>
       <tr class="text-center">
-      <td><%= contractor_type.name %></td>
-        <td><%= link_to 'Show', contractor_type %></td>
-        <td><%= link_to 'Edit', edit_contractor_type_path(contractor_type) %></td>
-        <td><%= link_to 'Destroy', contractor_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td style="color:white"><%= contractor_type.name %></td>
+        <td style="background-color:white"><%= link_to 'Show', contractor_type %></td>
+        <td style="background-color:white"><%= link_to 'Edit', edit_contractor_type_path(contractor_type) %></td>
+        <td style="background-color:white"><%= link_to 'Destroy', contractor_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
+<br>
 
 <%= link_to '<button type="button" class="btn btn-dark">New contractor types</button>'.html_safe, new_contractor_type_path %>
 <%= link_to '<button type="button" class="btn btn-dark">Back</button>'.html_safe, contractors_path %>

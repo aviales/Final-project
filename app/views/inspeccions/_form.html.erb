@@ -18,14 +18,41 @@
     <%= form.label :contractor_id %>
     <%= form.select :contractor_id, Contractor.pluck( :name, :id ) %>
   </div>
-    <div class="field"style="color:white" >
+  <div class="field" style="color:white">
+    <%= form.label :project_id %>
+    <%= form.select :project_id, Project.pluck( :name, :id ) %>
+  </div>
+    <div class="field"style="color:white">
     <%= form.label :date %>
     <%= form.date_select :date %>
   </div>
-  
+  <h2>check_list</h2>
+ 
+  <%= form.fields_for :check_lists do | list | %>
+    <div class="check_lists_fields">
+      <div class="fields">
+        <%= list.label :hazard_type %><br>
+        <%= list.text_field :hazard_type %>
+      </div>
+    </div>
+  <% end %>
+
+  <%# <div>
+    <ul class=" hazard type" >
+            <li class="hazard dropdown">
+              <a class="hazard dropdown-toggle" href="#" id="hazarddrop" data-toggle="dropdown">Hazard type</a>
+                <div class="dropdown-menu">
+                  <div class="field" style="color:black">
+                    <%#= check_box_tag(:hazard_type) %>
+                    <%#= label_tag(:hazard_type, "excavasiones") %>
+                    <%#= check_box_tag(:hazard_type) %>
+                    <%#= label_tag(:hazard_type, "trabajos en alturas") %>
+                  </div>
+                </div>
+    </ul>
+  </div> %>
 
   <div class="actions">
     <%= form.submit class: 'btn btn-success' %>
   </div>
-
 <% end %>
