@@ -1,4 +1,5 @@
 class CheckListsController < ApplicationController
+  before_action :set_inspeccion, only: %i[ show edit update destroy ]
   before_action :set_check_list, only: %i[ show edit update destroy ]
   before_action :set_check_list_item, only: %i[ show edit update destroy ]
   before_action :set_work_area, only: %i[ show edit update destroy ]
@@ -10,21 +11,17 @@ class CheckListsController < ApplicationController
 
   # GET /check_lists/1 or /check_lists/1.json
   def show
-  
   end
 
   # GET /check_lists/new
   def new
-    @check_list = CheckList.new
     @work_area = WorkArea.new
     @inspeccion = Inspeccion.all
     @check_list = CheckList.new
     10.times do
       @check_list.check_list_items.build
-      1.times do
-        #@check_list_item.work_areas.build
-      end
     end
+    @check_list.build_work_area
     
   end
 
@@ -79,7 +76,7 @@ class CheckListsController < ApplicationController
       
     end
     def set_inspeccion
-      @inspeccion = Inspeccion.find(params[:inspeccion_id])
+      @inspeccion = Inspeccion.find(params[:id])
     end
 
     def set_check_list_item
@@ -97,6 +94,6 @@ class CheckListsController < ApplicationController
     def check_list_params
       params.require(:check_list).permit(:document_version, :hazard_type, :inspeccion_id, 
                                           check_list_items_attributes: [:id, :text], 
-                                          work_areas_attributes: [:id, :name ])
+                                          work_area_attributes: [:id, :name ])
     end
 end

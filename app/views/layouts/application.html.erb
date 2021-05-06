@@ -24,6 +24,7 @@
   <!-- <header>
   </header> -->
   <body>
+  
    <%= render 'shared/navbar' %>
       <p class="notice"><%= notice%></p>
       <p class="alert"><%= alert%></p>
@@ -31,12 +32,18 @@
      
 
       <div class="container main-container">
-    
+    <div class="container pt-2">
+      <% if flash[:notice] %>
+        <div class="alert alert-success shadow">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+    </div>
         <%= yield %>
       </div>
-       <footer>
+       
       <%= render 'shared/footer' %>
-       </footer>
+      
       
     
       

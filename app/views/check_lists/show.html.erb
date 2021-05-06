@@ -20,6 +20,10 @@
 <% else %>
 	      <p>no hay check_list_item</p>
 <% end %>
+<h2>work areas</h2>
+
+<p><%= @check_list.work_area %></p>
+
 
 <%= link_to 'Edit', edit_check_list_path(@check_list) %> |
 <%= link_to 'Back', check_lists_path %>

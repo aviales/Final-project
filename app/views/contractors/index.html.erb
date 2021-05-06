@@ -7,7 +7,6 @@
     <tr class="text-center">
      <th scope="col">Name</th>
       <th scope="col">Contractor type</th>
-      <th scope="col">Inspeccion</th>
       <th colspan="4">Actions</th>
     </tr>
   </thead>
@@ -26,7 +25,41 @@
   </tbody>
 </table>
 
-<br>
+<div class="container pt-3">
+  <div class="card shadow bg-light">
+
+    <div class="d-flex p-2">
+      <%= fa_icon "question", class: "btn btn-info btn-sm shadow", title: "Aqui encontraras toda la informacion al respecto de los contratistas su nombre, y tipo, tambien puedes eliminar, editar y agregar un nuevo contratista" %>
+
+    </div>
+
+    <div class="card-body">
+
+      <div class="card-title d-flex justify-content-between align-items-center">
+       <h1>Contractors</h1>
+            <%= link_to (fa_icon "plus-square"), new_contractor_path, class: "btn btn-success btn-sm shadow", title: "Add contractor", remote: true %>
+      </div>
+
+      <div class="table-responsive shadow text-center">
+        <table class="table table-hover table-sm small">
+          <thead class="thead-light">
+            <tr>
+              <th>Name</th>
+              <th>Contractor Type</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @contractors.each do |contractor| %>
+              <%= render "row", contractor: contractor %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <%= link_to '<button type="button" class="btn btn-dark">New contractor</button>'.html_safe, new_contractor_path %>

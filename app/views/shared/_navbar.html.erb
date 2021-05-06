@@ -1,6 +1,6 @@
 
-<div class="relative bg-white">
-<nav class="navbar_menu">
+<div class="relative bg-white ">
+  <nav class="navbar_menu">
     <%= link_to root_path do %>
         <span class="sr-only">Workflow</span>
         <%= image_tag "safety_sol.png", alt: "logo", class: "logo h-8 w-auto sm:h-10" %>
@@ -10,12 +10,28 @@
 
     <!-- <div class="collapse navbar-collapse" id="navbarNav"> -->
         <ul class="navbar_menu_items">
-            <li class="nav-item">
-                <%= link_to 'Projects', projects_path, class: "a" %>
-                <%= link_to 'Contractors', contractors_path, class: "a" %>
 
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Menu</a>
+                <div class="dropdown-menu">
+                    <%= link_to 'Projects', projects_path, class: "dropdown-item" %>
+                    <%= link_to 'Contractors', contractors_path, class: "dropdown-item" %>
+                    <%#= link_to 'Inspeccions', project_inspeccions_path, class: "dropdown-item" %>
+                    <%= link_to 'Check list', check_lists_path, class: "dropdown-item" %>
+                </div>
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Go to</a>
+              <div class="dropdown-menu">
+                <%= link_to "Go to new Projects", new_project_path, class: "dropdown-item" %>
+                <%= link_to "Go to new contractors", new_contractor_path, class: "dropdown-item" %>
+                <%#= link_to "ir a Inspeccions", new_project_inspeccion_path, class: "dropdown-item" %>
+              </div>
+            </li>
+            <li class="center">
                 <% if user_signed_in? %>
-                    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "a" %>
+                    <%= link_to 'Logout', destroy_user_session_path, method: "delete"  %>
+
                 <% else %>
                     <%= link_to 'Login', new_user_session_path, class: "a" %>
                 <% end %>
@@ -26,66 +42,14 @@
                         <%= image_tag(current_user.profile_picture, class: 'avatar-img') %>
                      <% end %>
                     <% end %>
-                <% end %>
+                <% end %> 
             </li>
-            
             
         </ul>
       <span class="btn_menu">
           <i class="fa fa-bars"></i>
       </span>
-</nav>
+  </nav>
       
-     <!--
-    Mobile menu, show/hide based on mobile menu state.
-
-    Entering: "duration-200 ease-out"
-      From: "opacity-0 scale-95"
-      To: "opacity-100 scale-100"
-    Leaving: "duration-100 ease-in"
-      From: "opacity-100 scale-100"
-      To: "opacity-0 scale-95"
-  -->
-  <!--
-  <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-    <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-      <div class="pt-5 pb-6 px-5">
-        <div class="flex items-center justify-between">
-          <div>
-            <%= image_tag "safety_sol.png", alt: "logo", class: "logo h-8 w-auto" %>
-          </div>
-          <div class="-mr-2">
-            <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-              <span class="sr-only">Close menu</span>
-              /* Heroicon name: outline/x */
-              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="mt-6">
-        </div>
-      </div>
-      <div class="py-6 px-5 space-y-6">
-        <li class="nav-item login mr-3">
-                <% if user_signed_in? %>
-                    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %>
-                <% else %>
-                    <%= link_to 'Login', new_user_session_path, class: "nav-link" %>
-                <% end %>
-            </li>
-            <li class="nav-item">
-                <% if current_user %>
-                    <%= link_to(edit_user_registration_path) do %>
-                    <% if current_user.profile_picture.attached?  %>
-                        <%= image_tag(current_user.profile_picture, class: 'avatar-img') %>
-                     <% end %>
-                    <% end %>
-              <% end %>
-            </li>
-      </div>
-    </div>
-  </div>
-  -->
+    
 </div>
