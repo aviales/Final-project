@@ -1,11 +1,15 @@
 class InspeccionsController < ApplicationController
   before_action :set_inspeccion, only: %i[ show edit update destroy ]
   #before_action :authorize_admin!, except: [:index, :new, :create ]
-  before_action :set_project  
+  before_action :set_project, only: %i[ create update ]
   # GET /inspeccions or /inspeccions.json
   def index
     @inspeccions = current_user.inspeccions
-      @inspeccions = @project.inspeccions.order(:date) if params[:project_id]
+    if params[:project_id]
+      @project = Project.find(params[:project_id])
+      @inspeccions = @project.inspeccions.order(:date) 
+    end
+    @check_lists = CheckList.all
   end
 
   # GET /inspeccions/1 or /inspeccions/1.json
@@ -14,7 +18,7 @@ class InspeccionsController < ApplicationController
 
   # GET /inspeccions/new
   def new
-    @check_lists = CheckList.all
+   
     @inspeccion = Inspeccion.new
     @contractor = Contractor.all
   end
@@ -32,7 +36,7 @@ class InspeccionsController < ApplicationController
 
     respond_to do |format|
       if @inspeccion.save
-        format.html { redirect_to project_inspeccions_path, notice: "Inspeccion was successfully created." }
+        format.html { redirect_to project_inspeccions_path(@inspeccion.project), notice: "Inspeccion was successfully created." }
         format.json { render :show, status: :created, location: @inspeccion }
       else
         format.html { render :new }
@@ -70,7 +74,7 @@ class InspeccionsController < ApplicationController
     end
 
     def set_project
-      @project = Project.find(params[:project_id]) if params[:project_id]
+      @project = Project.find(params[:inspeccion][:project_id]) if params[:inspeccion][:project_id] || !params
     end
 
     def set_check_list

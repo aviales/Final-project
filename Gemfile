@@ -69,3 +69,4 @@ gem 'bootstrap-daterangepicker-rails'
 gem 'active_date_range'
 gem 'activeadmin'
 gem "cocoon"
+gem 'coffee-rails', '~> 4.2'

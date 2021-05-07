@@ -9,3 +9,6 @@ class ApplicationController < ActionController::Base
   end
 end
 
+class HomeController < ApplicationController
+  layout "home", only: [:index]
+end

@@ -1,0 +1,29 @@
+<%= form_with(model:@todo_list,local:true) do |f| %>
+  <% if @todo_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@todo_list.errors.count, "error") %> prohibited this Check_list from being saved:</h2>
+
+      <ul>
+      <% @todo_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+   <div class="field" style="color:white">
+    <%= f.label :Check_list %>
+    <%= f.select :check_list_id, options_from_collection_for_select(@check_lists, :id, :hazard_type)%>
+  </div>
+
+  <div class="field">
+    <%= f.label :Check_List %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :Check_List_Item %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
