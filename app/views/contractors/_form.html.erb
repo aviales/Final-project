@@ -10,13 +10,13 @@
       </ul>
     </div>
   <% end %>
-
+    <h2 style="background-color:white">Contractor name:</h2>
   <div class="field" style="color:white">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <h2>Contractor types</h2>
+  <h2 style="background-color:white">Contractor types:</h2>
  
   <%= form.fields_for :contractor_types do | type | %>
     <div class="contractor_types_fields">
@@ -27,18 +27,7 @@
     </div>
   <% end %>
 
-   <%= form_for @contractor, remote: true do |f| %>
-   <div class="modal-body">
-          <div class="alert alert-danger" role="alert" style="display: none;"></div>
-            <%= f.select :contractor_type_id, options_for_select(Contractor_type.all.collect { |t| [t.name, t.id]}), {}, class: "form-group form-control custom-select shadow" %>
-          </div>
-        <div class="modal-footer">
-          <%= f.submit class: "btn btn-success btn-sm shadow", title: "Agregar contratista" %>
-        </div>
-      <% end %>
-    </div>
-
-    
+   
   <div class="actions">
     <%= form.submit %>
   </div>

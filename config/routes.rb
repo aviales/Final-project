@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :inspeccions
   end
   resources :contractors
-  
+  get 'inspeccions', to:'inspeccions#index', as:'inspeccions'
   root'home#index'
 end

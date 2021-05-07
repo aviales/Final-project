@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <div >
-    <h5 style="color:white">Puts Inspeccions info:</h5>
+    <h5 style="background-color:white">Puts Inspeccions info:</h5>
   </div>
 
   <div class="field" style="color:white">
@@ -26,32 +26,13 @@
     <%= form.label :date %>
     <%= form.date_select :date %>
   </div>
-  <h2>check_list</h2>
+  <h5 style="background-color:white">Select yours check_lists</h5>
+
+  <div class="field" style="color:white">
+    <%= form.label :check_list_id %>
+       <%#= form.collection_check_boxes( :check_list_ids, @check_lists, :id, :hazard_type) %>
+</div>
  
-  <%= form.fields_for :check_lists do | list | %>
-    <div class="check_lists_fields">
-      <div class="fields">
-        <%= list.label :hazard_type %><br>
-        <%= list.text_field :hazard_type %>
-      </div>
-    </div>
-  <% end %>
-
-  <%# <div>
-    <ul class=" hazard type" >
-            <li class="hazard dropdown">
-              <a class="hazard dropdown-toggle" href="#" id="hazarddrop" data-toggle="dropdown">Hazard type</a>
-                <div class="dropdown-menu">
-                  <div class="field" style="color:black">
-                    <%#= check_box_tag(:hazard_type) %>
-                    <%#= label_tag(:hazard_type, "excavasiones") %>
-                    <%#= check_box_tag(:hazard_type) %>
-                    <%#= label_tag(:hazard_type, "trabajos en alturas") %>
-                  </div>
-                </div>
-    </ul>
-  </div> %>
-
   <div class="actions">
     <%= form.submit class: 'btn btn-success' %>
   </div>

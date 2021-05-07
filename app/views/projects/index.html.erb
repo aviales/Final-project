@@ -2,33 +2,61 @@
 
 <h1 class="text-center mt-5 mb-2">Projects</h1>
    
+   <div class="container">
+      <div class="container" style="background-repeat: no-repeat;background-position: center center;background-size: auto; background-image: url('https://images.pexels.com/photos/4161604/pexels-photo-4161604.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1050');" >    <div class="d-flex p-2">
+          <%= fa_icon "question", class: "btn btn-info btn-sm shadow", title: "Aqui encontraras toda la informacion al respecto de los proyecto su nombre, y tipo, tambien puedes eliminar, editar y agregar un nuevo proyecto" %>
+      </div>
+        <div class="card-body">
+            <div class="card-title d-flex justify-content-between align-items-center">
+              <button type="button" class=" btn btn-primary " data-toggle="modal" data-target="#staticBackdrop">
+                Project new
+              </button>    
 
-<table class="table table-index">
-  <thead class="thead-dark">
-    <tr class="text-center">
-     <th scope="col">Name</th>
-      <th scope="col">Start date</th>
-      <th scope="col">Finish date</th>
-      <th colspan="4">Actions</th>
-    </tr>
-  </thead>
+            </div>
+        <div class="table-responsive shadow text-center">
+          <table class="table table-hover table-sm small">
+            <thead class="thead-dark">
+              <tr class="text-center">
+                <th scope="col">Name</th>
+                <th scope="col">Start date</th>
+                <th scope="col">Finish date</th>
+                <th colspan="4">Actions</th>
+              </tr>
+            </thead>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr class="text-center">
-        <td style="color:white"><%= project.name %></td>
-        <td style="color:white"><%= project.start_date %></td>
-        <td style="color:white"><%= project.finish_date %></td>
-        <td style="background-color:white"><%= link_to 'Show', project %></td>
-        <td style="background-color:white "><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td style="background-color:blue"><%= link_to "Inspeccion ", project_inspeccions_path(project.id) %></td>
-        <td style="background-color:white"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+              <tbody>
+                <% @projects.each do |project| %>
+                <%= render "row", project: project %>
+                <% end %>
+   
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
 
 
 <%= link_to '<button type="button" class="btn btn-dark">New Project</button>'.html_safe, new_project_path %>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content"  style="background-image: url('https://cdn.pixabay.com/photo/2018/09/25/23/40/baukran-3703469__340.jpg');">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">New Project</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <%= render "form", project: Project.new %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
