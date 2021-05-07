@@ -1,5 +1,4 @@
 <tr id="<%= contractor.id %>">
-  <td><%= contractor.id %></td>
   <td><%= contractor.name %></td>
   <td><%= contractor.contractor_types.map {|c| c.name}.join(", ") %></td>
   <td><%= contractor.inspeccions.map {|contractor| contractor.date}.join(", ") %></td>

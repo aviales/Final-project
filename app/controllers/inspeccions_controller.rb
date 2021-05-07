@@ -1,10 +1,11 @@
 class InspeccionsController < ApplicationController
   before_action :set_inspeccion, only: %i[ show edit update destroy ]
-  before_action :authorize_admin!, except: [:index, :new, :create ]
+  #before_action :authorize_admin!, except: [:index, :new, :create ]
   before_action :set_project  
   # GET /inspeccions or /inspeccions.json
   def index
-      @inspeccions = @project.inspeccions.order(:date)
+    @inspeccions = current_user.inspeccions
+      @inspeccions = @project.inspeccions.order(:date) if params[:project_id]
   end
 
   # GET /inspeccions/1 or /inspeccions/1.json
@@ -13,21 +14,21 @@ class InspeccionsController < ApplicationController
 
   # GET /inspeccions/new
   def new
-    @check_list = CheckList.new
+    @check_lists = CheckList.all
     @inspeccion = Inspeccion.new
-    2.times do
-      @inspeccion.check_lists.build
-    end
+    @contractor = Contractor.all
   end
 
   # GET /inspeccions/1/edit
   def edit
-    @inspeccion.check_list.build
+    @check_list = CheckList.all
   end
 
   # POST /inspeccions or /inspeccions.json
   def create
-    @inspeccion = Inspeccion.new(inspeccion_params.merge(project: set_project))
+    @inspeccion = Inspeccion.new(inspeccion_params.merge(project: set_project, user_id: current_user.id))
+   @check_lists = CheckList.where(id:params[:inspeccion][:check_list_ids])
+    @inspeccion.check_lists.push(@check_lists)
 
     respond_to do |format|
       if @inspeccion.save
@@ -65,11 +66,11 @@ class InspeccionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inspeccion
-      @inspeccion = Inspeccion.find(params[:contractor_id])
+      @inspeccion = Inspeccion.find(params[:id])
     end
 
     def set_project
-      @project = Project.find(params[:project_id])
+      @project = Project.find(params[:project_id]) if params[:project_id]
     end
 
     def set_check_list
@@ -83,7 +84,7 @@ class InspeccionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inspeccion_params
-      params.require(:inspeccion).permit(:id, :date, :project_id, :contractor_id, check_lists_attributes: [:hazard_type, :document_version])
+      params.require(:inspeccion).permit( :date, :project_id, :contractor_id, :check_list_ids)
     end
     
 end

@@ -1,6 +1,5 @@
 class ContractorTypesController < ApplicationController
   before_action :set_contractor_type, only: %i[ show edit update destroy ]
-  before_action :set_contractor, only: %i[ show edit update destroy ]
   # GET /contractor_types or /contractor_types.json
   def index
     @contractor_types = ContractorType.all.order(:name)
@@ -61,10 +60,8 @@ class ContractorTypesController < ApplicationController
   
   private
     # Use callbacks to share common setup or constraints between actions.
-    def contractor_type
-      @contractor_type = ContractorType.find(params[:id])
-    end
-    def set_contractor_types
+    
+    def set_contractor_type
       @contractor_type = ContractorType.find(params[:id])
     end
 
