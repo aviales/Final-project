@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_165623) do
+ActiveRecord::Schema.define(version: 2021_05_07_172658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,24 @@ ActiveRecord::Schema.define(version: 2021_05_06_165623) do
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
+  create_table "todo_items", force: :cascade do |t|
+    t.string "content"
+    t.datetime "completed_at"
+    t.bigint "todo_list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["todo_list_id"], name: "index_todo_items_on_todo_list_id"
+  end
+
+  create_table "todo_lists", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "check_list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["check_list_id"], name: "index_todo_lists_on_check_list_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -162,5 +180,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_165623) do
   add_foreign_key "inspeccions", "projects"
   add_foreign_key "inspeccions", "users"
   add_foreign_key "projects", "users"
+  add_foreign_key "todo_items", "todo_lists"
+  add_foreign_key "todo_lists", "check_lists"
   add_foreign_key "work_areas", "check_lists"
 end

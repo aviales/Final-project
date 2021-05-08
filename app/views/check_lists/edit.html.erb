@@ -1,6 +1,8 @@
 <h1>Editing Check List</h1>
-
-<%= render 'form', check_list: @check_list %>
-
-<%= link_to 'Show', @check_list %> |
-<%= link_to 'Back', check_lists_path %>
+<div class="forms">
+  <%= render 'form', check_list: @check_list %>
+</div>
+<div class="links">	
+  <%= link_to 'Show', @check_list %> |
+  <%= link_to 'Back', check_lists_path %>
+</div>

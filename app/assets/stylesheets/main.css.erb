@@ -1,9 +1,8 @@
-
+<%# este es el ccss que da margenes al logo /* * */ %>
 *, *::before, *::after{
   margin: 0;
   padding: 0;
   outline: 0;
-  box-sizing: border-box;
 }
 
 /*
@@ -49,17 +48,15 @@ body{
 	background-position: center;
 	background-attachment: fixed;
   background-color: transparent;
+  height: expression(this.scrollHeight < 301? "300px" : "auto" );
 } 
-<%# este es el ccss que da margenes al logo /* * */ %>
+<%# este es el ccss que da margenes al logo a la izquierda y dentro del navbar /* * */ %>
 .logo {
   
   width:100px;
   height:80px;
-  position: fixed;
- padding-left: 0px;
-  top: 0px;
+ padding-right: 800px;
   left: 10px;
-   align-items:left;
 }
 
 
@@ -111,10 +108,10 @@ ul.show {
   top: 65px;
 
 }
-
+<%# este es el ccss que da margenes al logo /* * */ %>
 @media screen and (max-width: 952px){
   .logo{
-    position:fixed; top:0; left:20;
+    position:fixed; top:0;
   }
   .logo, .avatar-img {
     

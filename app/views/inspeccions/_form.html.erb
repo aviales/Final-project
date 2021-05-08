@@ -23,14 +23,14 @@
     <%= form.select :project_id, Project.pluck( :name, :id ) %>
   </div>
     <div class="field"style="color:white">
-    <%= form.label :date %>
+    <%= form.label :Inspeccion_date %>
     <%= form.date_select :date %>
   </div>
   <h5 style="background-color:white">Select yours check_lists</h5>
 
   <div class="field" style="color:white">
     <%= form.label :check_list_id %>
-       <%#= form.collection_check_boxes( :check_list_ids, @check_lists, :id, :hazard_type) %>
+       <%= form.collection_check_boxes( :check_list_ids, @check_lists, :id, :hazard_type) %>
 </div>
  
   <div class="actions">

@@ -94,6 +94,6 @@ class CheckListsController < ApplicationController
     def check_list_params
       params.require(:check_list).permit(:document_version, :hazard_type, :inspeccion_id, 
                                           check_list_items_attributes: [:id, :text], 
-                                          work_area_attributes: [:id, :name ])
+                                          work_area_attributes: [:id, :name ], todo_list_attributes: [:title, :description])
     end
 end
