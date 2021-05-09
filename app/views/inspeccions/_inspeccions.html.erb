@@ -1,0 +1,20 @@
+<table class="table table-index">
+  <thead class="thead-dark">
+    <tr class="text-center">
+      <th scope="col">Name</th>
+       <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+   <tbody>
+     <tr class="text-center">
+          <td style="color:white"><%= inspeccion.date %></td>
+          <td style="color:white"><%#= inspeccion.contractor.name %></td>
+          <td style="color:white"><%= inspeccion.project.name %></td>
+          <td style="color:white"><%= inspeccion.check_lists.map {|inspeccion| inspeccion.hazard_type}.join(", ")</td> %>
+          <td><%= link_to 'Show', project_inspeccions_path(project,inspeccion) %></td>
+          <td><%= link_to 'Edit', edit_project_inspeccion_path(project,inspeccion) %></td>
+          <td><%= link_to 'Destroy', [project,inspeccion], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

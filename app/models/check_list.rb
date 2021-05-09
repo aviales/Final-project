@@ -7,7 +7,7 @@ class CheckList < ApplicationRecord
   accepts_nested_attributes_for :work_area,
     reject_if: proc { |attributes| attributes['name'].blank? },
     allow_destroy: true
-  
+  has_many :todo_lists
   belongs_to :inspeccion, :optional => true
   validates :hazard_type, presence: true
  

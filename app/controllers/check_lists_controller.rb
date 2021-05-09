@@ -18,7 +18,7 @@ class CheckListsController < ApplicationController
     @work_area = WorkArea.new
     @inspeccion = Inspeccion.all
     @check_list = CheckList.new
-    10.times do
+    7.times do
       @check_list.check_list_items.build
     end
     @check_list.build_work_area
@@ -94,6 +94,6 @@ class CheckListsController < ApplicationController
     def check_list_params
       params.require(:check_list).permit(:document_version, :hazard_type, :inspeccion_id, 
                                           check_list_items_attributes: [:id, :text], 
-                                          work_area_attributes: [:id, :name ])
+                                          work_area_attributes: [:id, :name ], todo_list_attributes: [:title, :description])
     end
 end

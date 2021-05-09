@@ -16,16 +16,18 @@
  */
  
 
- /* * {
+  * {
   box-sizing: border-box;
-} */
+} 
 
-/* body {
-  margin: 0;
+body {
   padding: 0;
   border: 0;
   width: 100%;
-} */
+  margin: 0 auto;
+} 
+
+
 /* changes on the icon logo */
 
 
@@ -76,6 +78,7 @@
 
 .fa-twitter, .fa-pen, .fa-trash {
   color: rgb(164, 0, 8);
+  
 }
 
 .fa-pen, .fa-trash {
@@ -130,7 +133,7 @@
 }
 
 a {
-  color: rgb(0, 123, 164);
+  color: rgb(12, 99, 180);
 }
 
 .registration input {

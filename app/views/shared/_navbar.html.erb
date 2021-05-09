@@ -3,7 +3,7 @@
   <nav class="navbar_menu">
     <%= link_to root_path do %>
         <span class="sr-only">Workflow</span>
-        <%= image_tag "safety_sol.png", alt: "logo", class: "logo h-8 w-auto sm:h-10" %>
+        <%= image_tag "safety_sol.png", id:'logot', alt: "logo", class: "logo h-8 w-auto sm:h-10" %>
     <% end %>
 
   
@@ -16,7 +16,7 @@
                 <div class="dropdown-menu">
                     <%= link_to 'Projects', projects_path, class: "dropdown-item" %>
                     <%= link_to 'Contractors', contractors_path, class: "dropdown-item" %>
-                    <%#= link_to 'Inspeccions', project_inspeccions_path, class: "dropdown-item" %>
+                    <%= link_to 'Inspeccions', inspeccions_path, class: "dropdown-item" %>
                     <%= link_to 'Check list', check_lists_path, class: "dropdown-item" %>
                 </div>
           
@@ -25,6 +25,8 @@
               <div class="dropdown-menu">
                 <%= link_to "Go to new Projects", new_project_path, class: "dropdown-item" %>
                 <%= link_to "Go to new contractors", new_contractor_path, class: "dropdown-item" %>
+                 <%= link_to "Go to new check", todo_lists_path, class: "dropdown-item" %>
+            
                 <%#= link_to "ir a Inspeccions", new_project_inspeccion_path, class: "dropdown-item" %>
               </div>
             </li>

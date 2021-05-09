@@ -1,52 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Contractors</h1>
 
-<table class= "contractors">
- <thead class="thead-dark">
-    <tr class="text-center">
-     <th scope="col">Name</th>
-      <th scope="col">Contractor type</th>
-      <th colspan="4">Actions</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @contractors.each do |contractor| %>
-       <tr class="text-center">
-        <td style="color:white"><%= contractor.name %></td>
-        <td style="color:white"><%= contractor.contractor_types.map {|c| c.name}.join(", ") %></td>
-        <td style="background-color:white"><%= contractor.inspeccions.map {|contractor| contractor.date}.join(", ") %></td>
-        <td style="background-color:white"><%= link_to 'Show', contractor %></td>
-        <td style="background-color:white"><%= link_to 'Edit', edit_contractor_path(contractor) %></td>
-        <td style="background-color:white"><%= link_to 'Destroy', contractor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<div class="container pt-3">
-  <div class="card shadow bg-light">
-
+<div class="container ">
+  <div class="container" style="background-repeat: no-repeat;background-position: center center;background-size: auto; background-image: url('https://images.pexels.com/photos/4161604/pexels-photo-4161604.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1050');" >
     <div class="d-flex p-2">
       <%= fa_icon "question", class: "btn btn-info btn-sm shadow", title: "Aqui encontraras toda la informacion al respecto de los contratistas su nombre, y tipo, tambien puedes eliminar, editar y agregar un nuevo contratista" %>
-
+      <h1 class="text-center mt-5 mb-2" style="color:black">Contractors</h1>
     </div>
-
     <div class="card-body">
-
       <div class="card-title d-flex justify-content-between align-items-center">
-       <h1>Contractors</h1>
-            <%= link_to (fa_icon "plus-square"), new_contractor_path, class: "btn btn-success btn-sm shadow", title: "Add contractor", remote: true %>
+            <button type="button" class=" btn btn-primary " data-toggle="modal" data-target="#staticBackdrop">
+                contractor new
+            </button> 
+               <%= link_to '<button type="button" class="btn btn-primary">Project</button>'.html_safe, projects_path %>
+            <%= link_to '<button type="button" class="btn btn-primary">Contractor types </button>'.html_safe, contractor_types_path %>
       </div>
-
       <div class="table-responsive shadow text-center">
         <table class="table table-hover table-sm small">
-          <thead class="thead-light">
-            <tr>
-              <th>Name</th>
-              <th>Contractor Type</th>
-              <th colspan="2"></th>
+          <thead class="thead-dark">
+            <tr class="text-center">
+              <th scope="col">Name</th>
+              <th scope="col">Contractor Type</th>
+               <th scope="col">Inspeccions</th>
+              <th colspan="4"></th>
             </tr>
           </thead>
           <tbody>
@@ -60,9 +37,29 @@
   </div>
 </div>
 
+<br>
 
 
-<%= link_to '<button type="button" class="btn btn-dark">New contractor</button>'.html_safe, new_contractor_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Contractor types List</button>'.html_safe, contractor_types_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Checklist </button>'.html_safe, check_lists_path %>
 <%#= link_to '<button type="button" class="btn btn-dark">Inspeccion type </button>'.html_safe, project_inspeccions_path %>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content"  style="background-image: url('https://cdn.pixabay.com/photo/2018/09/25/23/40/baukran-3703469__340.jpg');">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">New Contractor</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <%= render "form", contractor: Contractor.new %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>

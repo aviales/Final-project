@@ -1,34 +1,72 @@
 <p id="notice"><%= notice %></p>
-<h1 class="text-center mt-5 mb-2">Inspeccions</h1>
-<table class="table table-index">
-  <thead class="thead-dark">
-    <tr class="text-center">
-      <th scope="col"> Inspeccion date</th>
-      <th scope="col"> Contractor</th>
-      <th scope="col"> Project</th>
-         <th scope="col"> check_list</th>
-      <th colspan="5">Actions</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @inspeccions.each do |inspeccion| %>
-     <tr class="text-center">
-        <td style="color:white"><%= inspeccion.date %></td>
-         <td style="color:white"><%= inspeccion.contractor.name %></td>
-          <td style="color:white"><%= inspeccion.project.name %></td>
-          <td style="color:white"><%#= inspeccion.check_lists.map {|inspeccion| inspeccion.hazard_type}.join(", ")</td>
-        <td><%= link_to 'Show', project_inspeccions_path(@project,inspeccion) %></td>
-        <td><%= link_to 'Edit', edit_project_inspeccion_path(@project,inspeccion) %></td>
-        <td><%= link_to 'Destroy', [@project,inspeccion], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container pt-3">
+      <div class="container" style="background-repeat: no-repeat;background-position: center center;background-size: auto; background-image: url('https://images.pexels.com/photos/4161604/pexels-photo-4161604.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1050');" >    <div class="d-flex p-2">
+          <%= fa_icon "question", class: "btn btn-info btn-sm shadow", title: "Aqui encontraras toda la informacion al respecto de los proyecto su nombre, y tipo, tambien puedes eliminar, editar y agregar un nuevo proyecto" %>
+        <h1 class="text-center mt-5 mb-2"style="color:black">Inspeccions</h1>
+      </div>
+        <div class="card-body">
+            <div class="card-title d-flex justify-content-between align-items-center">
+              <button type="button" class=" btn btn-primary " data-toggle="modal" data-target="#staticBackdrop">
+                 Inspeccion New
+              </button>    
+                <% if !current_page?(inspeccions_path) %>
+      
+                <%= link_to '<button type="button" class="btn btn-primary">New Inspeccion</button>''Inspeccions', inspeccions_path %>
+                <%= link_to '<button type="button" class="btn btn-primary">Check lists</button>'.html_safe, check_lists_path %>
+                  <%= link_to '<button type="button" class="btn btn-primary">Projects</button>'.html_safe, projects_path %>
+                <% end %>
+            </div>
+              <div class="table-responsive shadow text-center">
+                <table class="table table-index">
+                  <thead class="thead-dark">
+                    <tr class="text-center">
+                      <th scope="col"> Inspeccion date</th>
+                      <th scope="col"> Contractor</th>
+                      <th scope="col"> Project</th>
+                      <th scope="col"> check_list</th>
+                      <th colspan="5">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <% @inspeccions.each do |inspeccion| %>
+                    <%#= render "row", inspeccion: Inspeccion %>
+                    <% end %>
+                  </tbody>
 
-<br>
+                  <tbody>
+                    <% @inspeccions.each do |inspeccion| %>
+                    <tr class="text-center">
+                      <%#= render 'inspeccions',inspeccion: inspeccion, project: inspeccion.project %>
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+  </div
 
 
-<%= link_to '<button type="button" class="btn btn-dark">New Inspeccion</button>'.html_safe, new_project_inspeccion_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Check list</button>'.html_safe, check_lists_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Back</button>'.html_safe, projects_path %>
+
+
+ <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content"  style="background-image: url('https://cdn.pixabay.com/photo/2018/09/25/23/40/baukran-3703469__340.jpg');">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">New Inspeccion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <%= render "form", inspeccion: Inspeccion.new %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+
+<tr id="<%= @contractor_types %>">
+  <td><%= contractor_type.name %></td>
+  
+  <td><%= link_to (fa_icon "edit"), edit_contractor_type_path(contractor_type), class: "btn btn-secondary btn-sm shadow", title: "Editar contratista", remote: true %></td>
+  <td><%= link_to (fa_icon "trash"), contractor_type, method: :delete, data: { confirm: "¿Estas seguro de eliminar contratista"}, class: "btn btn-danger btn-sm shadow", title: "Eliminar " %></td>
+</tr>
