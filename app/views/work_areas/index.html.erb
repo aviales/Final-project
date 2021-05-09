@@ -1,28 +1,56 @@
 <p id="notice"><%= notice %></p>
+<div class="container ">
+  <div class="container" style="background-repeat: no-repeat;background-position: center center;background-size: auto; background-image: url('https://images.pexels.com/photos/4161604/pexels-photo-4161604.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1050');" >
+    <div class="d-flex p-2">
+      <%= fa_icon "question", class: "btn btn-info btn-sm shadow", title: "Aqui encontraras toda la informacion al respecto de los contratistas su nombre, y tipo, tambien puedes eliminar, editar y agregar un nuevo contratista" %>
+     <h1 class="text-center mt-5 mb-2"style="color:black ">Work Areas</h1>
 
-<h1 class="text-center mt-5 mb-2">Work Areas</h1>
+    </div>
+    <div class="card-body">
+      <div class="card-title d-flex justify-content-between align-items-center">
+            <button type="button" class=" btn btn-primary " data-toggle="modal" data-target="#staticBackdrop">
+                Work Area new
+            </button> 
 
-<table class="table table-index">
-  <thead class="thead-dark">
-    <tr class="text-center">
-      <th scope="col">Name</th>
-       <th colspan="2">Actions</th>
-    </tr>
-  </thead>
+              <%= link_to '<button type="button" class="btn btn-primary"> Check List</button>'.html_safe, check_lists_path %>
+        </div>
+          <div class="table-responsive shadow text-center">
+            <table class="table table-hover table-sm small">
+              <thead class="thead-dark">
+                <tr class="text-center">
+                  <th scope="col">Name</th>
+                  <th colspan="4">Actions</th>
+                </tr>
+              </thead>
+                <tbody>
+                  <% @work_areas.each do |work_area| %>
+                   <%= render "row", work_area: @work_areas %>
+                  <% end %>
+                </tbody>
+            </table>
+          </div>
+      </div>
+  </div>
+</div>
 
-  <tbody>
-    <% @work_areas.each do |work_area| %>
-     <tr class="text-center">
-        <td style="color:white"><%= work_area.name %></td>
-        <td style="background-color:white"><%= link_to 'Show', work_area %></td>
-        <td style="background-color:white" ><%= link_to 'Edit', edit_work_area_path(work_area) %></td>
-        <td style="background-color:white"><%= link_to 'Destroy', work_area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content"  style="background-image: url('https://cdn.pixabay.com/photo/2018/09/25/23/40/baukran-3703469__340.jpg');">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">New work Area</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <%= render "form", work_area: work_area.new %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<br>
-
-<%= link_to '<button type="button" class="btn btn-dark"> New Work Area</button>'.html_safe,new_work_area_path %>
-<%= link_to '<button type="button" class="btn btn-dark"> Check List</button>'.html_safe, check_lists_path %>

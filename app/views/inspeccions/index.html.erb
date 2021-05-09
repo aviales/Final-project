@@ -1,15 +1,21 @@
 <p id="notice"><%= notice %></p>
-<h1 class="text-center mt-5 mb-2">Inspeccions</h1>
+
 <div class="container pt-3">
       <div class="container" style="background-repeat: no-repeat;background-position: center center;background-size: auto; background-image: url('https://images.pexels.com/photos/4161604/pexels-photo-4161604.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1050');" >    <div class="d-flex p-2">
           <%= fa_icon "question", class: "btn btn-info btn-sm shadow", title: "Aqui encontraras toda la informacion al respecto de los proyecto su nombre, y tipo, tambien puedes eliminar, editar y agregar un nuevo proyecto" %>
+        <h1 class="text-center mt-5 mb-2"style="color:black">Inspeccions</h1>
       </div>
         <div class="card-body">
             <div class="card-title d-flex justify-content-between align-items-center">
               <button type="button" class=" btn btn-primary " data-toggle="modal" data-target="#staticBackdrop">
                  Inspeccion New
               </button>    
-
+                <% if !current_page?(inspeccions_path) %>
+      
+                <%= link_to '<button type="button" class="btn btn-primary">New Inspeccion</button>''Inspeccions', inspeccions_path %>
+                <%= link_to '<button type="button" class="btn btn-primary">Check lists</button>'.html_safe, check_lists_path %>
+                  <%= link_to '<button type="button" class="btn btn-primary">Projects</button>'.html_safe, projects_path %>
+                <% end %>
             </div>
               <div class="table-responsive shadow text-center">
                 <table class="table table-index">
@@ -23,14 +29,16 @@
                     </tr>
                   </thead>
                   <tbody>
-                     <%# @inspeccions.each do |inspeccion| %>
+                     <% @inspeccions.each do |inspeccion| %>
                     <%#= render "row", inspeccion: Inspeccion %>
-                    <%# end %>
+                    <% end %>
                   </tbody>
 
                   <tbody>
                     <% @inspeccions.each do |inspeccion| %>
-                    <%#= render 'inspeccions',inspeccion: inspeccion, project: inspeccion.project %>
+                    <tr class="text-center">
+                      <%#= render 'inspeccions',inspeccion: inspeccion, project: inspeccion.project %>
+                    </tr>
                     <% end %>
                   </tbody>
                 </table>
@@ -40,11 +48,7 @@
   </div
 
 
-<% if !current_page?(inspeccions_path) %>
-<%= link_to '<button type="button" class="btn btn-dark">New Inspeccion</button>'.html_safe, new_project_inspeccion_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Check list</button>'.html_safe, check_lists_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Back</button>'.html_safe, projects_path %>
-<% end %>
+
 
  <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

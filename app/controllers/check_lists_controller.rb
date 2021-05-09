@@ -18,7 +18,7 @@ class CheckListsController < ApplicationController
     @work_area = WorkArea.new
     @inspeccion = Inspeccion.all
     @check_list = CheckList.new
-    10.times do
+    7.times do
       @check_list.check_list_items.build
     end
     @check_list.build_work_area

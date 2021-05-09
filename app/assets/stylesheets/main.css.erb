@@ -6,7 +6,7 @@
 }
 
 /*
-.top-header {
+<%# .top-header {
   position: absolute;
   text-align: right;
   margin-top: 50px;
@@ -18,7 +18,7 @@
     background-position: 50% 25vh;
     background-color: lightgray;
     background-size: 50% auto;
-    background-repeat: repeat-x;
+    background-repeat: repeat-x; %>
 
   top: 0px;
   left: 0px;
@@ -35,7 +35,7 @@
   padding: 7px 20px;
   position: relative;
   font-weight: 400;
-  overflow: hidden;
+  overflow: scroll;
   color: rgb(235, 35, 35);
 }
 */
@@ -48,19 +48,29 @@ body{
 	background-position: center;
 	background-attachment: fixed;
   background-color: transparent;
-  height: expression(this.scrollHeight < 301? "300px" : "auto" );
+   : "auto" );
 } 
 <%# este es el ccss que da margenes al logo a la izquierda y dentro del navbar /* * */ %>
 .logo {
   
   width:100px;
   height:80px;
- padding-right: 800px;
+ padding-right: 1000px;
   left: 10px;
 }
-
+<%# este es el ccss del navbar /* * */ %>
 .navbar_menu{
-  background-color: rgb(235, 240, 236);
+  background-color: black;
+  height: 80px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ffff;
+  box-shadow: 5px 0 10px rgba(68, 67, 68, 0.9);
+}
+.navbar_menu_home{
+  background-color: white;
   height: 80px;
   width: 100vw;
   display: flex;
@@ -226,18 +236,19 @@ a{
   background-color: white;
   display: inline-block; 
 }
-
+<%#//*habia problemas debido a que el margin-top del footer estaba reducido y la linea entre el final se arreglo con padding bottom*// %>
 footer {
   text-align: right;
   background-color: black;
-  margin-top: 50px;
+  margin-top: 300px;
   width: 100%;
-  height: 60px;
+  height: 70px;
   color: white;
   position: static;
+  padding-bottom: 100px;
 } 
 .footer-icon {
-  top: 0px;
+ 
   left: 0px;
    width: 100%;
 }

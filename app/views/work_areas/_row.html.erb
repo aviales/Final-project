@@ -1,0 +1,9 @@
+
+<tr id="<%= work_area.id %>">
+  <td><%= work_area.name %></td>
+  <td><%#= contractor.contractor_types.map {|c| c.name}.join(", ") %></td>
+  <td><%#= contractor.inspeccions.map {|contractor| contractor.date}.join(", ") %></td>
+  
+  <td><%= link_to (fa_icon "edit"), edit_work_area_path(work_area), class: "btn btn-secondary btn-sm shadow", title: "Editar contratista", remote: true %></td>
+  <td><%= link_to (fa_icon "trash"), work_area, method: :delete, data: { confirm: "¿Estas seguro de eliminar contratista"}, class: "btn btn-danger btn-sm shadow", title: "Eliminar " %></td>
+</tr>
