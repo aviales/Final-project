@@ -1,17 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="text-center mt-5 mb-2">Contractors</h1>
+
 
 <div class="container ">
   <div class="container" style="background-repeat: no-repeat;background-position: center center;background-size: auto; background-image: url('https://images.pexels.com/photos/4161604/pexels-photo-4161604.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1050');" >
     <div class="d-flex p-2">
       <%= fa_icon "question", class: "btn btn-info btn-sm shadow", title: "Aqui encontraras toda la informacion al respecto de los contratistas su nombre, y tipo, tambien puedes eliminar, editar y agregar un nuevo contratista" %>
+      <h1 class="text-center mt-5 mb-2" style="color:black">Contractors</h1>
     </div>
     <div class="card-body">
       <div class="card-title d-flex justify-content-between align-items-center">
             <button type="button" class=" btn btn-primary " data-toggle="modal" data-target="#staticBackdrop">
                 contractor new
-            </button>    
+            </button> 
+               <%= link_to '<button type="button" class="btn btn-primary">Project</button>'.html_safe, projects_path %>
+            <%= link_to '<button type="button" class="btn btn-primary">Contractor types </button>'.html_safe, contractor_types_path %>
       </div>
       <div class="table-responsive shadow text-center">
         <table class="table table-hover table-sm small">
@@ -36,9 +39,7 @@
 
 <br>
 
-<%= link_to '<button type="button" class="btn btn-dark">Project</button>'.html_safe, projects_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Contractor types List</button>'.html_safe, contractor_types_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Checklist </button>'.html_safe, check_lists_path %>
+
 <%#= link_to '<button type="button" class="btn btn-dark">Inspeccion type </button>'.html_safe, project_inspeccions_path %>
 
 

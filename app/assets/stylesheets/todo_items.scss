@@ -21,15 +21,17 @@
  */
 
  $white_opaque: rgba(250, 250, 250, .3);
- $dark: #1F7972;
+ $dark: #e8e9e9f1;
 
 * {
 	box-sizing: border-box;
+
 }
 html {
   height: 100%;
+	overflow: scroll;
 }
-
+///formato de la caja de datos
  body > todo_list {
   	height: 100%;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif; 
@@ -38,6 +40,8 @@ html {
     background-position: center;
     background-attachment: fixed;
     background-color: transparent;
+		background-repeat: no-repeat;
+		
 
  }
 
@@ -45,6 +49,7 @@ html {
 .clearfix:after {
     content: " ";
     display: table;
+		overflow: auto;
 }
 
 .clearfix:after {
@@ -56,34 +61,48 @@ html {
 	font-size: 0.6em;
 	color: $dark;
 	font-weight: 100;
-	border: 1px solid $white_opaque;
 	padding: .5em 1em;
-	border-radius: 5px;
 	display: block;
 	margin: 1em 25%;
 }
-
- .container > todo_list {
- 	width: 50%;
+///formato de la caja de datos con fondo de tres cascos
+ .container  {
+ 	width: 100%;
  	max-width: 750px;
- 	background: $white_opaque;
- 	margin: 3em auto 0 auto;
+ 	margin: -2em auto 0 auto;
  	border-radius: 7px;
  	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
  	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
  	padding: 1em 0;
+	 
  }
-
+//modificar los clearfix de todolist, la imagen esta en index de todolist//
 .todo_list_title {
+	text-align: center;
+	font-weight: 700;
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	color: rgb(12, 11, 11);
+	margin: 0;
+	a {
+		text-decoration: none;
+		color: rgb(10, 10, 10);
+		transition: all .4s ease-in-out;
+		&:hover {
+			opacity: 0.4;
+		}
+	}
+}
+.todo_list_title2 {
 	text-align: center;
 	font-weight: 700;
 	font-size: 2.5rem;
 	text-transform: uppercase;
-	color: white;
+	color: rgb(12, 11, 11);
 	margin: 0;
 	a {
 		text-decoration: none;
-		color: white;
+		color: rgb(10, 10, 10);
 		transition: all .4s ease-in-out;
 		&:hover {
 			opacity: 0.4;
@@ -92,18 +111,23 @@ html {
 }
 
 .todo_list_sub_title {
-	margin: 0 0 3em 0;
+	margin: 1.5em 2em 2em auto;
 	text-align: center;
-	font-size: 0.9em;
-	color: $dark;
+	font-size: 1em;
+	color: rgb(10, 10, 10);
 	font-weight: 100;
+	height: min-content;
+	background-color: rgb(166, 167, 177);
 }
 
 .index_row {
-	padding: 2em;
+	padding: 0em;
 	border-bottom: 1px solid rgba(250,250,250, .3);
 	.todo_list_sub_title {
 		margin-bottom: 0;
+		height: min-content;
+		font-size: 1.5em;
+		
 	}
 }
 
@@ -158,6 +182,8 @@ html {
 			border-radius: 4px;
 			padding: 1em 2em;
 			background-image: url(https://cdn.pixabay.com/photo/2018/01/11/06/26/construction-3075498__340.jpg);
+			background-repeat: no-repeat;
+  		background-size: auto 100%;
 		}
 		input[type="submit"] {
 			background: rgba(250,250,250,.4);
@@ -184,8 +210,46 @@ html {
 	font-size: 0.8em;
 	color: white;
 	a {
-		color: white;
+		color: rgb(14, 13, 13);
+		background-color: darkgreen;
 	}
+	
+}
+.links2 {
+	display: block;
+	margin: 1.5em auto 0 auto;
+	text-align: center;
+	font-size: 1.8em;
+	color: white;
+	a {
+		color: rgb(14, 13, 13);
+		background-color: darkgreen;
+	}
+	
+}
+.links3 {
+	display: block;
+	margin: 1.5em auto 0 auto;
+	text-align: center;
+	font-size: 1.2em;
+	color: white;
+	a {
+		color: rgb(14, 13, 13);
+		background-color: rgb(117, 122, 117);
+	}
+	
+}
+.links4 {
+	display: block;
+	margin: 1.5em auto 0 auto;
+	text-align: center;
+	font-size: 1.2em;
+	color: white;
+	a {
+		color: rgb(14, 13, 13);
+		background-color: rgb(118, 124, 118);
+	}
+	
 }
 
 .forms {
@@ -213,18 +277,18 @@ textarea {
 	height: 200px;
 }
 input[type="submit"] {
-	background: white;
+	background: blue;
 	outline: none;
 	border: none;
 	height: 40px;
 	border-radius: 4px;
-	width: 25%;
+	width: 30%;
 	display: inline-block;
 	transition: all .4s ease-in-out;
 	cursor: pointer;
-	color: $dark;
+	color: black;
 	&:hover {
-		background: $dark;
+		background: green;
 		color: white;
 	}
 }
