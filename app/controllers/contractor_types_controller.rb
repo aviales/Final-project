@@ -1,5 +1,6 @@
 class ContractorTypesController < ApplicationController
   before_action :set_contractor_type, only: %i[ show edit update destroy ]
+  before_action :set_contractor, only [:create]
   # GET /contractor_types or /contractor_types.json
   def index
     @contractor_types = ContractorType.all.order(:name)
@@ -67,6 +68,6 @@ class ContractorTypesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contractor_type_params
-      params.require(:contractor_type).permit(:name,:name, :contractor_id)
+      params.require(:contractor_type).permit(:id,:name, :contractor_id)
     end
 end

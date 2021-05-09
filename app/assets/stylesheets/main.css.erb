@@ -42,25 +42,21 @@
 
 <%# este es el ccss que da margenes a la imagen de fondo /* * */ %>
 body{
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif; 
   background-image: url(<%= asset_path 'hard-hat' %>);
   background-size: cover; 
 	background-position: center;
 	background-attachment: fixed;
   background-color: transparent;
-   : "auto" );
+  
 } 
 <%# este es el ccss que da margenes al logo a la izquierda y dentro del navbar /* * */ %>
 .logo {
-  
-  width:100px;
+  width: 100px;
   height:80px;
- padding-right: 1000px;
-  left: 10px;
+  left: 0px;
 }
 <%# este es el ccss del navbar /* * */ %>
 .navbar_menu{
-  background-color: black;
   height: 80px;
   width: 100vw;
   display: flex;
@@ -226,7 +222,7 @@ ul li{
 }
 a{
   color: black;
-  margin: 0 auto;
+  margin: 0;
 }
 #table {
   color: black;

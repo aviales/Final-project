@@ -21,12 +21,10 @@
 } 
 
 body {
-  margin: 0;
   padding: 0;
   border: 0;
   width: 100%;
   margin: 0 auto;
-  max-height: 300px;
 } 
 
 
@@ -135,7 +133,7 @@ body {
 }
 
 a {
-  color: rgb(0, 123, 164);
+  color: rgb(12, 99, 180);
 }
 
 .registration input {
