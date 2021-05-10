@@ -1,6 +1,7 @@
 class WorkAreasController < ApplicationController
   before_action :set_work_area, only: %i[ show edit update destroy ]
   before_action :set_check_list, only: %i[ show edit update destroy ]
+  # before_action :authenticate_admin!, except: [:new, :create, :show, :index]
   # GET /work_areas or /work_areas.json
   def index
     @work_areas = WorkArea.all.order(:name)

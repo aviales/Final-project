@@ -1,6 +1,12 @@
 class ContractorTypesController < ApplicationController
+<<<<<<< HEAD
   before_action :set_contractor_type, only: %i[ :create show edit update destroy ]
   # before_action :set_contractor, only [ :create]
+=======
+  before_action :set_contractor_type, only: %i[ show edit update destroy ]
+   # before_action :authenticate_admin!, except: [:new, :create, :show, :index]
+  before_action :set_contractor, only [:create]
+>>>>>>> upstream/main
   # GET /contractor_types or /contractor_types.json
   def index
     @contractor_types = ContractorType.all.order(:name)

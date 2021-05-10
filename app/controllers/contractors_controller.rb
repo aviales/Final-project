@@ -1,6 +1,6 @@
 class ContractorsController < ApplicationController
   before_action :set_contractor, only: %i[ show edit update destroy ]
-  #before_action :authorize_admin!, except: [:index, :new, :create ]
+   # before_action :authenticate_admin!, except: [:new, :create, :show, :index]
   before_action :set_contractor_type, only: %i[ show edit update destroy new ]
   before_action :authenticate_user!, except: %i[ index search ]
  

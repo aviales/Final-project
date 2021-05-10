@@ -11,25 +11,28 @@
         <ul class="navbar_menu_items">
              
              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Contacto</a>
-                <div class="dropdown-menu">
-                    <%= link_to 'Projects', projects_path, class: "dropdown-item" %>
-                    <%= link_to 'Contractors', contractors_path, class: "dropdown-item" %>
-                    <%= link_to 'Inspeccions', inspeccions_path, class: "dropdown-item" %>
-                    <%= link_to 'Check list', check_lists_path, class: "dropdown-item" %>
-                </div>
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">INICIO</a>
+                  <ul class="navbar-nav">
+                      <li id="inicio"><%#=link_to "Inicio", index_path, :class => "inicionav"%></li> 
+                  </ul>
+               
 
               <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Quienes Somos</a>
-                <div class="dropdown-menu">
-                    <%= link_to 'Projects', projects_path, class: "dropdown-item" %>
-                    <%= link_to 'Contractors', contractors_path, class: "dropdown-item" %>
-                    <%= link_to 'Inspeccions', inspeccions_path, class: "dropdown-item" %>
-                    <%= link_to 'Check list', check_lists_path, class: "dropdown-item" %>
-                </div>
-
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">QUIENES SOMOS</a>
+                    <ul class="navbar-nav"> 
+                      <li id="about"><%#=link_to "About", abouts_path, :class => "aboutnav"%></li> 
+                    </ul>
+                    
+               
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">NUESTROS SERVICIOS</a>
+                    <div class="dropdown-menu">
+                       <ul class="navbar-nav"> 
+                        <li id="services"><%#=link_to "Services", services_path, :class => "servicesnav"%></li> 
+                        </ul>
+                      </div>    
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Menu</a>
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">APP SAFETY SOLUTIONS CR</a>
                 <div class="dropdown-menu">
                     <%= link_to 'Projects', projects_path, class: "dropdown-item" %>
                     <%= link_to 'Contractors', contractors_path, class: "dropdown-item" %>
@@ -38,11 +41,10 @@
                 </div>
           
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Go to</a>
-              <div class="dropdown-menu">
-                <%= link_to "Go to new Projects", new_project_path, class: "dropdown-item" %>
-                <%= link_to "Go to new contractors", new_contractor_path, class: "dropdown-item" %>
-                <%#= link_to "ir a Inspeccions", new_project_inspeccion_path, class: "dropdown-item" %>
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">CONTACTO</a>
+              <ul class="navbar-nav"> 
+                <li id="contact"><%#=link_to "Contact", contacts_path, :class => "contactnav"%></li>
+               </ul>
               </div>
             </li>
             <li class="center">
@@ -70,3 +72,4 @@
       
     
 </div>
+ 

@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :set_project, only: %i[ show edit create update destroy ]
   #before_action :authorize_admin!, except: [:index, :new, :create, :show ]
   before_action :authenticate_user!, except: %i[ index search ]
   
