@@ -25,27 +25,26 @@
   </header> -->
   <body>
   
-   <%= render 'shared/navbar' %>
+    <%= render 'shared/navbar' %>
       <p class="notice"><%= notice%></p>
       <p class="alert"><%= alert%></p>
 
      
 
-      <div class="container main-container">
+      
     <div class="container pt-2">
       <% if flash[:notice] %>
         <div class="alert alert-success shadow">
           <%= flash[:notice] %>
         </div>
-      <% end %>
     </div>
+      <% end %>
+      </div class ="container main-container">
         <%= yield %>
       </div>
        
-      
       <%= render 'shared/footer' %>
       
-    
       
   </body>
  
