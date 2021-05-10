@@ -41,8 +41,8 @@ addEventListener('DOMContentLoaded',() =>{
     }
 })
 
-// window.onscroll = function (e)
-// {
-//     $('#logo').hide();
-// }
+ window.onscroll = function (e)
+    {
+     $('.logo').hide();
+     }
 
