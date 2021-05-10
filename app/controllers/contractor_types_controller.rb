@@ -1,5 +1,6 @@
 class ContractorTypesController < ApplicationController
   before_action :set_contractor_type, only: %i[ show edit update destroy ]
+   # before_action :authenticate_admin!, except: [:new, :create, :show, :index]
   # GET /contractor_types or /contractor_types.json
   def index
     @contractor_types = ContractorType.all.order(:name)
