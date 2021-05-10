@@ -24,7 +24,7 @@
               </thead>
                 <tbody>
                   <% @work_areas.each do |work_area| %>
-                   <%= render "row", work_area: @work_areas %>
+                   <%= render "row", work_area: work_area %>
                   <% end %>
                 </tbody>
             </table>
@@ -44,7 +44,7 @@
         </button>
       </div>
       <div class="modal-body">
-         <%= render "form", work_area: work_area.new %>
+         <%= render "form", work_area: @work_area %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
