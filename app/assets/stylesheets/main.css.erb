@@ -65,9 +65,10 @@ body{
   border-bottom: 1px solid #ffff;
   box-shadow: 5px 0 10px rgba(68, 67, 68, 0.9);
 }
+<%#  este es el ccss del navbar de la pagina home  /* * */ %>
 .navbar_menu_home{
-  background-color: white;
-  height: 80px;
+  background-color: transparent;
+  height: 90px;
   width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -75,6 +76,59 @@ body{
   border-bottom: 1px solid #ffff;
   box-shadow: 5px 0 10px rgba(68, 67, 68, 0.9);
 }
+.logo-home {
+  width: 100px;
+  height:80px;
+  left: 0px;
+}
+
+.navbar_menu_items-home{
+  display: flex;
+  list-style: none;
+  margin-right: -80px;
+ 
+}
+
+.avatar-img-home {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100%;
+   display: flex;
+   margin:0px 20em 0 0;
+ 
+}
+  .navbar_menu li-home{
+    margin:50px 0 0 0;
+    line-height: 30px; 
+  }
+  .navbar_menu_items li:hover{
+    background: none;
+  }
+  .navbar_menu_items-home li .an{
+    font-size: 20px;
+    color: #ffff;
+    font-weight: bold;
+  }
+  .navbar_menu_items-home li .an:hover {
+    color: rgb(133, 45, 50);
+  }
+  
+}
+
+@media screen and (max-width: 858px) and (orientation: landscape){
+  .navbar_menu_items-home li{
+  margin:80px 5em 0 0;
+  }
+  .navbar_menu_items-home{
+    overflow: scroll;
+    height: calc(100% - 65px);
+  }
+}
+a-home{
+  color: white;
+  margin: 30;
+}
+
 <%#  este es el ccss que da distacia a menu goto y login  /* * */ %>
 .navbar_menu_items{
   display: flex;
