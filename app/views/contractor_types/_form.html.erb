@@ -1,4 +1,4 @@
-<%= form_with(model: contractor_type) do |form| %>
+<%= form_with(model: contractor_type, remote: true) do |form| %>
   <% if contractor_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(contractor_type.errors.count, "error") %> prohibited this contractor_type from being saved:</h2>
@@ -11,7 +11,7 @@
     </div>
   <% end %>
 <div >
-    <h5 style="color:white">-+
+    <h5 style="color:white">
     Puts Contractor type info:</h5>
   </div>
   <div class="field" style="color:white">
@@ -21,7 +21,7 @@
 
   <div class="field" style="color:white">
     <%= form.label :contractor %>
-    <%= form.select :contractor_id, options_from_collection_for_select(@contractor, :id, :name)%>
+    <%#= form.select :contractor_id, options_from_collection_for_select(@contractor, :id, :name)%>
   </div>
   
 
