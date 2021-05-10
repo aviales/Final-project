@@ -15,8 +15,142 @@
     <meta name="author" content="">
    
 </head>
-     
-     <%= render 'shared/home_side/carousel' %> 
+
+<%# <!-- LOADER -->
+    <div id="preloader">
+        <div class="loader">
+              <%#= image_tag "loader.gif"  alt="#" %>
+        </div>
+    </div>
+     <!-- END LOADER --> %>
+
+<!-- Header -->
+<header>
+ <!-- Navbar  -->
+    <div class="relative bg-white fixed-top">
+    <nav class="navbar_menu_home">
+        <%= link_to root_path do %>
+            <span class="sr-only">Workflow</span>
+            <%= image_tag "safety_sol.png", alt: "logo", class: "logo-home h-8 w-auto sm:h-10" %>
+        <% end %>
+
+    
+
+        <!-- <div class="collapse navbar-collapse" id="navbarNav"> -->
+            <ul class="navbar_menu_items-home">
+                
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">INICIO</a>
+                    <ul class="navbar-nav">
+                        <li id="inicio"><%#=link_to "Inicio", index_path, :class => "inicionav"%></li> 
+                    </ul>
+                
+
+                
+                <a href="#about"  id="about" >QUIENES SOMOS</a>
+                     
+                    
+                <div class="nav-item dropdown" id="about">
+                    <ul class="navbar-nav">
+                        <li id="about" ><a class="nav-link active" href="#about">QUIENES SOMOS</a></li>      
+                   </ul>
+                </div>
+
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">NUESTROS SERVICIOS</a>
+                        <div class="dropdown-menu">
+                            <ul class="navbar-nav"> 
+                                <li id="services"><%#=link_to "Services", services_path, :class => "servicesnav"%></li> 
+                            </ul>
+                        </div>    
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">APP SAFETY SOLUTIONS CR</a>
+                    <div class="dropdown-menu">
+                        <%= link_to 'Projects', projects_path, class: "dropdown-item" %>
+                        <%= link_to 'Contractors', contractors_path, class: "dropdown-item" %>
+                        <%= link_to 'Inspeccions', inspeccions_path, class: "dropdown-item" %>
+                        <%= link_to 'Check list', check_lists_path, class: "dropdown-item" %>
+                    </div>
+            
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">CONTACTO</a>
+                            <ul class="navbar-nav"> 
+                                <li id="contact"><%#=link_to "Contact", contacts_path, :class => "contactnav"%></li>
+                            </ul>
+               
+
+                        </li>
+                <li class="center ">
+                    <% if user_signed_in? %>
+                        <%= link_to 'Logout', destroy_user_session_path, method: "delete"  %>
+
+                    <% else %>
+                        <%= link_to 'Login', new_user_session_path, class: "a-home" %>
+                    <% end %>
+
+                    <% if current_user %>
+                        <%= link_to(edit_user_registration_path) do %>
+                        <% if current_user.profile_picture.attached?  %>
+                            <%= image_tag(current_user.profile_picture, class: 'avatar-img-home') %>
+                        <% end %>
+                        <% end %>
+                    <% end %> 
+                </li>
+                
+            </ul>
+        <span class="btn_menu">
+            <i class="fa fa-bars"></i>
+        </span>
+    </nav>
+        
+        
+    </div>
+</header>
+ <body>
+          <!-- Carousel -->
+        <div class="container-fluid" style="padding-top: 0%; margin: 20px">
+    <div style="position: container;d-block; width: 100%;">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <img src="<%=asset_path('banner5.jpg') %>" class="d-block w-1050" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                    <h1 style="color:blue" ><strong>NUEVA APP SAFETY SOLUTIONS CR</h1></strong>
+                        <p class="carouseltitle" style="color:white"><strong>Aplicacion para realizar inspecciones en los centro de trabajo</p></strong>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="<%=asset_path('banner3.jpg') %>" class="d-block w-1050" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 style="color:blue"><strong>Consultoría en Salud ocupacional</h1></strong>
+                        <p class="carouseltitle" style="color:white"><strong>Todo los requisitos, para el funcionamiento seguro de su empresa.</p></strong>
+                    </div>
+                </div>
+                    <div class="carousel-item">
+                    <img src="<%=asset_path('banner7.jpg') %>" class="d-block w-1050" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 style="color:blue"><strong>Entrenamiento y Capacitacion</h1></strong>
+                            <p class="carouseltitle"style="color:white"><strong>Su recurso humano trabajará de forma segura.</p></strong>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
 
      <a class="typeform-share button" href="https://form.typeform.com/to/BWYq2YHv?typeform-medium=embed-snippet" data-mode="popover" style="width:54px;height:54px;position:fixed;box-shadow:0px 2px 12px rgba(0, 0, 0, 0.06), 0px 2px 4px rgba(0, 0, 0, 0.08);right:26px;bottom:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#5C870B;overflow:hidden;line-height:0;" data-hide-headers="true" data-hide-footer="true" target="_blank"> <span class="icon"> <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' style="margin-top:6px;"> <path d='M21 0H0V9L10.5743 24V16.5H21C22.6567 16.5 24 15.1567 24 13.5V3C24 1.34325 22.6567 0 21 0ZM7.5 9.75C6.672 9.75 6 9.07875 6 8.25C6 7.42125 6.672 6.75 7.5 6.75C8.328 6.75 9 7.42125 9 8.25C9 9.07875 8.328 9.75 7.5 9.75ZM12.75 9.75C11.922 9.75 11.25 9.07875 11.25 8.25C11.25 7.42125 11.922 6.75 12.75 6.75C13.578 6.75 14.25 7.42125 14.25 8.25C14.25 9.07875 13.578 9.75 12.75 9.75ZM18 9.75C17.172 9.75 16.5 9.07875 16.5 8.25C16.5 7.42125 17.172 6.75 18 6.75C18.828 6.75 19.5 7.42125 19.5 8.25C19.5 9.07875 18.828 9.75 18 9.75Z' fill='white' /> </svg> </span> </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
 
@@ -27,15 +161,15 @@
     <div class="section-home layout_padding-home" style="background-color:white">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-13">
+                <div class="col-md-12">
                     <div class="full-home">
                         <div class="heading_main-home text_align_left-home">
                             <div class="left">
                                 <p class="section_count-home">01</p>
                             </div>
                             <div class="right">
-                                <p class="small_tag-home">Quienes Somos</p>
-                                <h2 class="container-inline text-justify"><span class="theme_color-home container text-justify">Podemos </span>ayudar a que su negocio crezca con ambientes sanos y seguros para sus clientes y colaoradores</h2>
+                                <p id="about"class="small_tag-home">Quienes Somos</p>
+                                <h2 class="container text-justify"><span class="theme_color-home container text-justify">Podemos </span>ayudar a que su negocio crezca con ambientes sanos y seguros para sus clientes y colaoradores</h2>
                             </div>
                         </div>
                     </div>
@@ -46,16 +180,16 @@
     <!-- end section -->
       <!-- section -->
     <div class="section dark_bg-home">
-        <div class="container-inline">
+        <div class="container-home">
             <div class="row">
-                <div class="col-lg-6 col-md-12 text_align_center-home padding_0-home">
+                <div class="col-lg-12 col-md-12 text_align_center-home padding_0-home">
                     <div class="full-home">
                          <img class="img-responsive-home " src="<%=asset_path('img-2png.png') %> " alt="...">
                     </div>
                 
 
-                <div class="col-lg-13 col-md-12 white_fonts layout_padding-home padding_left_right-home ">
-                    <h3 class="small_heading-home container text-justify">TODO LO QUE NECESITA<br> EN UNA SOLUCIÓN</h3>
+                <div class="col-lg-12 col-md-13 white_fonts layout_padding-home padding_left_right-home " >
+                    <h3 class="small_heading-home container text-justify">TODO LO QUE NECESITA EN UNA SOLUCIÓN</h3>
                     <p class="container text-justify">SAFETY SOLUTIONS, consultora Costarricense especializada en la gestión de riesgos, dedicada a brindar “Soluciones Integrales y Personalizadas”, ofrece profesionales de alto nivel con experiencia en construcción, industria, servicios
                         y oficinas
                     </p>
@@ -68,7 +202,8 @@
         </div>
     </div>
     <!-- end section -->
-      <!-- section -->
+     
+    <!-- section -->
     <div class=" section layout_padding-home " style="background-color:white">
         <div class="container ">
             <div class="row ">
@@ -86,66 +221,70 @@
                     </div>
                 </div>
             </div>
-               <div class="row margin-top_30 ">
+            <div class="row margin-top_30-home ">
 
-                    <div class="col-sm-6 col-md-4 ">
-                         <div class="service_blog-home ">
-                              <div class="service_icons-home ">
-                                   <img src="<%=asset_path('icon-1.png') %>" class="" width="75 " height="75 " alt="#">
-                              </div>
-                              <div class="full-home ">
-                                   <h4>Entrenamiento y Capacitacion</h4>
-                              </div>
-                              <div class="full-home ">
-                                   <ul class="container text-justify">
-                                        <li>
-
-                                             <p style="color:rgb(0, 7, 7);"><strong>👉 Capacitacion de atencion de emergencias
-
-                                             </strong></p>
-
-                                        </li>
-                                        <li>
-                                             <p><strong>👉 Cursos de prevencion de covid-19
-                                             </strong>
-                                                  <p>
-                                        </li>
-                                        <li>
-                                             <p><strong>👉 Cursos de Trabajos de Alto Riesgo
-                                             </strong>
-                                                  <p>
-                                        </li>
-                                        <li>
-                                             <p><strong>👉 Capacitacion de comisiones de salud ocupacional
-                                             </strong>
-                                                  <p>
-                                        </li>
-                                   </ul>
-
-                              </div>
-                         </div>
-                    </div>
-                     <div class="col-sm-6 col-md-4 ">
+                <div class="col-sm-6 col-md-4 ">
                     <div class="service_blog-home ">
                         <div class="service_icons-home ">
-                             <img src="<%=asset_path('icon-2.png') %>" class="" width="75 " height="75 " alt="#">
+                             <img src="<%=asset_path('icon-1.png') %>" class="" width="75 " height="75 " alt="#">
+                        </div>
+                        <div class="full-home ">
+                            <h4>Entrenamiento y Capacitacion</h4>
+                        </div>
+                        <div class="full-home ">
+                            <ul class="container text-justify">
+                                <li>
+
+                                    <p><strong>👉 Capacitacion de atencion de emergencias.
+
+                                    </strong></p>
+
+                                </li>
+                                <li>
+                                    <p><strong>👉 Cursos de prevencion de covid-19.
+                                    </strong>
+                                        <p>
+                                </li>
+                                <li>
+                                    <p><strong>👉 Cursos de Trabajos de Alto Riesgo.
+                                    </strong>
+                                        <p>
+                                </li>
+                                <li>
+                                    <p><strong>👉 Capacitacion de comisiones de salud ocupacional.
+                                    </strong>
+                                        <p>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 ">
+                    <div class="service_blog-home ">
+                        <div class="service_icons-home ">
+                            <img src="<%=asset_path('icon-2.png') %>" class="" width="75 " height="75 " alt="#">
                         </div>
                         <div class="full-home ">
                             <h4>Consultoria en Salud ocupacional</h4>
                         </div>
-                        <div class="ful-home ">
+                        <div class="full-home ">
                             <ul class="container text-justify">
                                 <li>
-                                    <p >👉 Implementación de Sistemas de Gestión Integrados en Salud, seguridad ocupacional y Medio Ambiente
-                                        <p>
+                                    <p><strong>👉 Implementación de Sistemas de Gestión Integrados en Salud, seguridad ocupacional y Medio Ambiente.
+                                    </strong>
+                                    <p>
                                 </li>
                                 <li>
-                                    <p>👉 Auditorías Internas de Calidad, Salud, seguridad ocupacional y Medio Ambiente
-                                        <p>
+                                    <p><strong>👉 Auditorías Internas de Calidad, Salud, seguridad ocupacional y Medio Ambiente.
+                                    </strong>
+                                    <p>
                                 </li>
                                 <li>
-                                    <p>👉Elaboracion de Planes salud ocupacional y emergencias
-                                        <p>
+                                    <p><strong>👉Elaboracion de Planes salud ocupacional y emergencias.
+                                    </strong>
+                                    <p>
                                 </li>
                             </ul>
                         </div>
@@ -158,25 +297,36 @@
                             <img src="<%=asset_path('icon-3.png') %>" class="" width="75 " height="75 " alt="#">
                         </div>
                         <div class="full-home ">
-                            <h4>identificacion de riesgos laborales</h4>
+                            <h4>App Safety Solutions CR</h4>
                         </div>
                         <div class="full-home ">
                             <ul class="container text-justify">
                                 <li>
-                                    <p>👉 identificacion de riesgos Fisicos
-                                        <p>
+                                    <p><strong>👉  identificación de peligros y evaluacion de riesgos Laborales.
+
+                                    </strong>
+                                    <p>
                                 </li>
+
                                 <li>
-                                    <p>👉 identificacion de riesgos Quimicos
-                                        <p>
+                                    <p><strong>👉 Registros de actos y condiciones inseguros.
+
+                                    </strong>
+                                    <p>
                                 </li>
+
                                 <li>
-                                    <p>👉 identificacion de riesgos Biológicos
-                                        <p>
+                                    <p><strong>👉 Levantamiento de cumplimiento de requisitos legales.
+
+                                    </strong>
+                                    <p>
                                 </li>
+
                                 <li>
-                                    <p>👉 identificacion de riesgos Ergónomicos
-                                        <p>
+                                    <p><strong>👉 Control estadístico de sus datos, para presentacion de informes de cumplimiento.
+
+                                    </strong>
+                                    <p>
                                 </li>
                             </ul>
                         </div>
@@ -186,7 +336,7 @@
         </div>
     </div>
     <!-- end section -->
-      <!-- section -->
+      <!-- section -->     <!-- cards -->
     <div class="section layout_padding-home "style="background-color:white">
         <div class="container ">
             <div class="row ">
