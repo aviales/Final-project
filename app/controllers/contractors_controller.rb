@@ -32,6 +32,7 @@ class ContractorsController < ApplicationController
   def create
     @contractor = Contractor.new(contractor_params.merge(user: current_user))
     @inspeccion = Inspeccion.all
+    format.js
 
     respond_to do |format|
       if @contractor.save
@@ -50,6 +51,7 @@ class ContractorsController < ApplicationController
       if @contractor.update(contractor_params)
         format.html { redirect_to @contractor, notice: "Contractor was successfully updated." }
         format.json { render :show, status: :ok, location: @contractor }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @contractor.errors, status: :unprocessable_entity }
@@ -63,6 +65,7 @@ class ContractorsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to contractors_url, notice: "Contractor was successfully destroyed." }
       format.json { head :no_content }
+      
     end
   end
 
@@ -71,9 +74,14 @@ class ContractorsController < ApplicationController
     def set_contractor
       @contractor = Contractor.find(params[:id])
     end
-    def contractor_types
-      @contractor_type = ContractorType.all
+
+    def typ_params
+      params.require(:contractor_type)
     end
+
+    # def contractor_types
+    #   @contractor_type = ContractorType.all
+    # end
 
     def set_contractor_type
       @contractor_type = ContractorType.all

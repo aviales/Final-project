@@ -28,10 +28,11 @@
     <%= form.date_select :finish_date %>
 </div>
 <div class="field" style="color:white">
-  <%= check_box_tag(:periodicity) %>
   <%= label_tag(:periodicity, "Once a week inspeccion") %>
   <%= check_box_tag(:periodicity) %>
   <%= label_tag(:periodicity, "Biweekly inspeccion") %>
+  <%= check_box_tag(:periodicity) %>
+  
 </div>
 <div class="actions">
   <%= form.submit value="Project Create" %>

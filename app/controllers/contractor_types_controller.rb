@@ -1,6 +1,6 @@
 class ContractorTypesController < ApplicationController
-  before_action :set_contractor_type, only: %i[ show edit update destroy ]
-  before_action :set_contractor, only [:create]
+  before_action :set_contractor_type, only: %i[ :create show edit update destroy ]
+  # before_action :set_contractor, only [ :create]
   # GET /contractor_types or /contractor_types.json
   def index
     @contractor_types = ContractorType.all.order(:name)
@@ -19,7 +19,8 @@ class ContractorTypesController < ApplicationController
 
   # GET /contractor_types/1/edit
   def edit
-    @ontractor.build
+    @contractor.build
+    @contractor.contractor_types.build
   end
   # POST /contractor_types or /contractor_types.json
   def create
@@ -29,6 +30,7 @@ class ContractorTypesController < ApplicationController
       if @contractor_type.save
         format.html { redirect_to @contractor_type, notice: "Contractor type was successfully created." }
         format.json { render :show, status: :created, location: @contractor_type }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @contractor_type.errors, status: :unprocessable_entity }
@@ -42,6 +44,7 @@ class ContractorTypesController < ApplicationController
       if @contractor_type.update(contractor_type_params)
         format.html { redirect_to @contractor_type, notice: "Contractor type was successfully updated." }
         format.json { render :show, status: :ok, location: @contractor_type }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @contractor_type.errors, status: :unprocessable_entity }
@@ -66,6 +69,17 @@ class ContractorTypesController < ApplicationController
       @contractor_type = ContractorType.find(params[:id])
     end
 
+    def contractor_contractor_type
+      @contractors = Contractor.where(contractor_type: typ_params)
+      render json: @contractors.as_json(include: :contractor_type)
+    end
+    def typ_params
+      params.require(:contractor_type)
+    end
+
+    def set_contractor
+      @contractor = Contractor.find(params[:contractor_id])
+    end
     # Only allow a list of trusted parameters through.
     def contractor_type_params
       params.require(:contractor_type).permit(:id,:name, :contractor_id)

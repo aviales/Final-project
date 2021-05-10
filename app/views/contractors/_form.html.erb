@@ -1,4 +1,4 @@
-<%= form_with(model: contractor) do |form| %>
+<%= form_with(model: contractor, remote: true) do |form| %>
   <% if contractor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(contractor.errors.count, "error") %> prohibited this contractor from being saved:</h2>
