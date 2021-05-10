@@ -31,7 +31,7 @@ end
                 name: Faker::FunnyName.four_word_name,
                 start_date: Faker::Date.between(from: '2021-04-23', to: '2021-05-25'),
                 finish_date: Faker::Date.between(from: '2021-06-01', to: '2021-09-25'),
-                periodicity:  $faker => randomElement(['Once a week inspeccion','Biweekly inspeccion']),
+                periodicity:  ['Once a week inspeccion','Biweekly inspeccion'].sample,
         )
 end
 

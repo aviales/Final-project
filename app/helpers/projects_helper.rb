@@ -1,7 +1,7 @@
 module ProjectsHelper
     
-    def checked(area)
+    def checked(project, area)
         
-        @project.periodicity.nil? ? false : @project.periodicity.match(area)
+        project.periodicity.nil? ? false : project.periodicity.match(area)
     end
 end

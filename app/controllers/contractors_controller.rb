@@ -7,6 +7,10 @@ class ContractorsController < ApplicationController
   # GET /contractors or /contractors.json
   def index
     @contractors = Contractor.all.order(:name)
+    @inspeccion = Inspeccion.all
+    @contractor = Contractor.new
+    @contractor.contractor_types.build    
+    @contractor_types = ContractorType.all
   end
 
   # GET /contractors/1 or /contractors/1.json
@@ -16,11 +20,9 @@ class ContractorsController < ApplicationController
   # GET /contractors/new
   def new
     @inspeccion = Inspeccion.all
-    @contractor_type = ContractorType.new
     @contractor = Contractor.new
-    2.times do
-      @contractor.contractor_types.build
-    end 
+    @contractor.contractor_types.build
+     
   end
 
   # GET /contractors/1/edit
@@ -30,10 +32,9 @@ class ContractorsController < ApplicationController
 
   # POST /contractors or /contractors.json
   def create
-    @contractor = Contractor.new(contractor_params.merge(user: current_user))
+    @contractor = Contractor.new(contractor_params.merge(user: current_user)) 
     @inspeccion = Inspeccion.all
-    format.js
-
+   
     respond_to do |format|
       if @contractor.save
         format.html { redirect_to @contractor, notice: "Contractor was successfully created." }
@@ -91,6 +92,6 @@ class ContractorsController < ApplicationController
     end
     # Only allow a list of trusted parameters through.
     def contractor_params
-      params.require(:contractor).permit(:name, :inspeccion_id,contractor_types_attributes: [:id, :name] )
+      params.require(:contractor).permit(:name, :inspeccion_id, contractor_types_attributes: [:name] )
     end
 end

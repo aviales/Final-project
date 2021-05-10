@@ -18,6 +18,7 @@
 
   <h2 style="background-color:white">Contractor types:</h2>
  
+  <%= form.select :contractor_type_id, options_from_collection_for_select(@contractor_types, :id, :name)%>
   <%= form.fields_for :contractor_types do | type | %>
     <div class="contractor_types_fields">
       <div class="fields">
