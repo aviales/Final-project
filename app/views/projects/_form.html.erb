@@ -28,10 +28,18 @@
     <%= form.date_select :finish_date %>
 </div>
 <div class="field" style="color:white">
-   <%= label_tag 'periodicity_once','test1' %>
-  <%= check_box_tag 'project[periodicity][]','test1', checked(project, 'test1'), id: 'periodicity_once' %>
-  <%= label_tag 'periodicity_biw','test2' %>
-  <%= check_box_tag 'project[periodicity][]','test2', checked(project, 'test2'), id: 'periodicity_biw' %>
+<<<<<<< HEAD
+   <%= label_tag 'periodicity_once','Once a week inspeccion' %>
+  <%= check_box_tag 'project[periodicity][]','Once a week inspeccion', checked(project, 'Once a week inspeccion'), id: 'periodicity_once' %>
+  <%= label_tag 'periodicity_biw','Biweekly inspeccion' %>
+  <%= check_box_tag 'project[periodicity][]','Biweekly inspeccion', checked(project, 'Biweekly inspeccion'), id: 'periodicity_biw' %>
+=======
+ <%= label_tag 'periodicity_once','Once a week inspeccion' %>
+  <%= check_box_tag 'project[periodicity][]','Once a week inspeccion', checked(project, 'Once a week inspeccion'), id: 'periodicity_once' %>
+  <%= label_tag 'periodicity_biw','Biweekly inspeccion' %>
+  <%= check_box_tag 'project[periodicity][]','Biweekly inspeccion', checked(project, 'Biweekly inspeccion'), id: 'periodicity_biw' %>
+
+>>>>>>> upstream/main
 </div>
 <div class="actions">
   <%= form.submit value="Project Create" %>
