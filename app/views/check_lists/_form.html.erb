@@ -26,7 +26,7 @@
     <%= form.select :inspeccion_id, options_from_collection_for_select(@inspeccion, :id, :date)%>
   </div>
 
-   <h2>Check list Items</h2>
+   <h2 style="color:white">Check list Items</h2>
  
   <%= form.fields_for :check_list_items do | item | %>
     <div class="check_list_items_fields">
@@ -37,7 +37,7 @@
     </div>
   <% end %>
 
-   <h2>work areas </h2>
+   <h2 style="color:white">work areas </h2>
  
   <%= form.fields_for :work_area do | area | %>
     <div class="work_area_fields">

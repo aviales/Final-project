@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-   <div class="field" style="color:white">
+   <div class="field" style="color:blue">
     <%= f.label :Check_list %>
     <%= f.select :check_list_id, options_from_collection_for_select(@check_lists, :id, :hazard_type)%>
   </div>
@@ -19,7 +19,7 @@
     <%= f.label :Nuevo_Check_List %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div class="field" style="color:black">
     <%= f.label :Subtitle_Description %><br>
     <%= f.text_area :description %>
   </div>

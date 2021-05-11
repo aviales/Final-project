@@ -190,4 +190,25 @@ a {
 
 
 
+.links a {
+  color: #0e0d0d;
+  background-color: darkgreen;
+}
 
+.links {
+  display: block;
+  margin: 1.5em auto 0 auto;
+  text-align: center;
+  font-size: 1.8em;
+  color: white;
+}
+.links {
+	display: block;
+	margin: 1.5em auto 0 auto;
+	text-align: center;
+	font-size: 0.8em;
+	color: white;
+	a {
+		color: white;
+	}
+}
