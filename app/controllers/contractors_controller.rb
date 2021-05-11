@@ -28,6 +28,7 @@ class ContractorsController < ApplicationController
   # GET /contractors/1/edit
   def edit
     @contractor.contractor_types.build
+    @contractor_types = ContractorType.all    
   end
 
   # POST /contractors or /contractors.json

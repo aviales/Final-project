@@ -1,7 +1,8 @@
 class CheckListItemsController < ApplicationController
   before_action :set_check_list_item, only: %i[ show edit update destroy ]
   before_action :set_check_list, only: %i[ show edit update destroy ]
-  # before_action :authenticate_admin!, except: [:new, :create, :show, :index]
+  before_action :authenticate_admin!, except: [:show, :index]
+  before_action :authenticate_user!, except: []  
   # GET /check_list_items or /check_list_items.json
   def index
     @check_list_items = CheckListItem.all.order(:value)

@@ -16,9 +16,11 @@
       <tr class="text-center">
         <td style="color:white"><%= check_list_item.value %></td>
         <td style="color:white"><%= check_list_item.text %></td>
+          <% if admin_signed_in? %>  
         <td style="background-color:white"><%= link_to 'Show', check_list_item %></td>
         <td style="background-color:white"><%= link_to 'Edit', edit_check_list_item_path(check_list_item) %></td>
         <td style="background-color:white"><%= link_to 'Destroy', check_list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
       </tr>
     <% end %>
   </tbody>

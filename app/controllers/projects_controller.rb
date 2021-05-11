@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
-  before_action :authorize_admin!, except: [:index, :new, :create, :show ]
+  # before_action :authenticate_admin!, except: [:index, :new, :create, :show ]
   before_action :authenticate_user!, except: %i[ ]
   
   # GET /projects or /projects.json
@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     # @inspeccion = inspeccion_url.when(available: true).order("date")
-    @project.inspeccion.build
+    @project.inspeccions.build
   end
 
   # POST /projects or /projects.json
