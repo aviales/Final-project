@@ -10,6 +10,7 @@ class InspeccionsController < ApplicationController
       @inspeccions = @project.inspeccions.order(:date) 
     end
     @check_lists = CheckList.all
+    @inspeccion= Inspeccion.all
   end
 
   # GET /inspeccions/1 or /inspeccions/1.json
