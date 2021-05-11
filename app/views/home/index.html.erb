@@ -1,20 +1,5 @@
 
 
-    <!-- Site Metas -->
-    <title>Safety Solutions</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-   
-</head>
-
-<%# <!-- LOADER -->
-    <div id="preloader">
-        <div class="loader">
-              <%#= image_tag "loader.gif"  alt="#" %>
-        </div>
-    </div>
-     <!-- END LOADER --> %>
 
 <!-- Header -->
 <header>
@@ -31,30 +16,13 @@
         <!-- <div class="collapse navbar-collapse" id="navbarNav"> -->
             <ul class="navbar_menu_items-home">
                 
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">INICIO</a>
-                    <ul class="navbar-nav">
-                        <li id="inicio"><%#=link_to "Inicio", index_path, :class => "inicionav"%></li> 
-                    </ul>
+               <li class="nav-item nav-link"> <%=link_to "START", root_path, :class => "inicionav"%><a href="#inicio"></a></li>
+                <li class="nav-item nav-link"><a href="#meetus">ABOUT</a></li>
                 
-
-                
-                <a href="#about"  id="about" >QUIENES SOMOS</a>
-                     
-                    
-                <div class="nav-item dropdown" id="about">
-                    <ul class="navbar-nav">
-                        <li id="about" ><a class="nav-link active" href="#about">QUIENES SOMOS</a></li>      
-                   </ul>
-                </div>
-
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">NUESTROS SERVICIOS</a>
-                        <div class="dropdown-menu">
-                            <ul class="navbar-nav"> 
-                                <li id="services"><%#=link_to "Services", services_path, :class => "servicesnav"%></li> 
-                            </ul>
-                        </div>    
+                <li class="nav-item nav-link"><a href="#service">SERVICES</a></li>
+                <li class="nav-item nav-link"><a href="#project">OUR PROJECTS</a></li>
+               
+                          
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">APP SAFETY SOLUTIONS CR</a>
                     <div class="dropdown-menu">
@@ -71,7 +39,6 @@
                             </ul>
                
 
-                        </li>
                 <li class="center ">
                     <% if user_signed_in? %>
                         <%= link_to 'Logout', destroy_user_session_path, method: "delete"  %>
@@ -99,7 +66,7 @@
     </div>
 </header>
  <body>
-          <!-- Carousel -->
+          <!-- Carousel section and beggining -->
         <div class="container-fluid" style="padding-top: 0%; margin: 20px">
     <div style="position: container;d-block; width: 100%;">
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -153,7 +120,7 @@
       
     
      <!-- section -->
-    <div class="section-home layout_padding-home" style="background-color:white">
+    <div id="meetus" class="section-home layout_padding-home" style="background-color:white">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -198,8 +165,8 @@
     </div>
     <!-- end section -->
      
-    <!-- section -->
-    <div class=" section layout_padding-home " style="background-color:white">
+    <!-- section Services from the company -->
+    <div id="service" class=" section layout_padding-home " style="background-color:white">
         <div class="container ">
             <div class="row ">
                 <div class="col-md-12 ">
@@ -331,8 +298,8 @@
         </div>
     </div>
     <!-- end section -->
-      <!-- section -->     <!-- cards -->
-    <div class="section layout_padding-home "style="background-color:white">
+      <!-- section Job Portfolio -->     <!-- cards -->
+    <div id="project" class="section layout_padding-home "style="background-color:white">
         <div class="container ">
             <div class="row ">
                 <div class="col-md-12 ">
@@ -392,12 +359,7 @@
             </div>
 
         </div>
-
-        
-   
-
-                        
-                              
+               
                
 
                 <div class="col-lg-12 ">
@@ -521,5 +483,5 @@
     
 </body>
 
-</html>
+
     

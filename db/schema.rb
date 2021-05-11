@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 2021_05_07_172658) do
     t.string "name", null: false
     t.date "start_date", null: false
     t.date "finish_date", null: false
-    t.integer "periodicity", null: false
+    t.string "periodicity", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
