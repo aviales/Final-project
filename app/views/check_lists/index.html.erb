@@ -1,23 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Check Lists</h1>
+<h1 style="color:white" >Check Lists</h1>
 
-<table>
-  <thead class="thead-dark">
-    <tr class="text-center">
-      <th scope="col" class="date">Version</th>
-      <th scope="col">Hazard type</th>
-      <th colspan="3">Actions</th>
-    </tr>
-  </thead>
-
+   <div class="container-fluid" >
+        <%= link_to '<button type="button" class="btn btn-dark">New Check List</button>'.html_safe, new_check_list_path %>
+        <%= link_to '<button type="button" class="btn btn-dark">Check List Item </button>'.html_safe, check_list_items_path %>
+        <%= link_to '<button type="button" class="btn btn-dark">Work Area</button>'.html_safe,work_areas_path %>
+        <%= link_to '<button type="button" class="btn btn-primary">Free Style Check List</button>'.html_safe,todo_lists_path %>
+      </div>               
+<div class="table-responsive shadow text-center">
+  <div class="container-fluid" style="background-repeat: no-repeat;background-position: center center;background-size: auto; background-image: url('https://images.pexels.com/photos/4161604/pexels-photo-4161604.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1550');" >    <div class="d-flex p-2">                  
+    <table class="table table-index">
+      <thead class="thead-dark">
+        <tr class="text-center">
+          <th scope="col" class="date">Version</th>
+          <th scope="col">Hazard type</th>
+          <th colspan="3">Actions</th>
+        </tr>
+      </thead>
+    
+  </div>
+</div>
   <tbody>
     <% @check_lists.each do |check_list| %>
       <tr>
-        <td style="color:white"><%= check_list.document_version %></td>
-        <td style="color:white" ><%= check_list.hazard_type %></td>
+        <td style="color:blue"><%= check_list.document_version %></td>
+        <td style="color:blue" ><%= check_list.hazard_type %></td>
         <td style="background-color:white" ><%= link_to 'Show', check_list %></td>
-        <td style="color:white"><%= link_to 'Edit', edit_check_list_path(check_list) %></td>
+        <td style=background-color:white><%= link_to 'Edit', edit_check_list_path(check_list) %></td>
         <td style="background-color:white"><%= link_to 'Destroy', check_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -26,7 +36,3 @@
 
 <br>
 
-<%= link_to '<button type="button" class="btn btn-dark">New Check List</button>'.html_safe, new_check_list_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Check List Item </button>'.html_safe, check_list_items_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Work Area</button>'.html_safe,work_areas_path %>
-<%= link_to '<button type="button" class="btn btn-dark">Check</button>'.html_safe,todo_lists_path %>

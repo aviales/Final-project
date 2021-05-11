@@ -188,6 +188,73 @@ a {
   font-size: 1.1rem;
 }
 
+/* changes on todolist */
 
+.links a {
+  color: #0e0d0d;
+  background-color: darkgreen;
+}
 
+.links {
+  display: block;
+  margin: 1.5em auto 0 auto;
+  text-align: center;
+  font-size: 1.8em;
+  color: white;
+}
+.links {
+	display: block;
+	margin: 1.5em auto 0 auto;
+	text-align: center;
+	font-size: 0.8em;
+	color: white;
+	a {
+		color: white;
+	}
+}
 
+.forms {
+  padding: 0 5%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto;
+  background-image: url(https://images.pexels.com/photos/1249611/pexels-photo-1249611.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1400);
+}
+
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+label {
+  color: #e8e9e9f1;
+}
+
+#todo_items_wrapper .row .todo_item p {
+  margin: 0;
+  padding: 1em;
+  color: #e8e9e9f1;
+  font-weight: 100;
+}
+#todo_items_wrapper #form input[type="text"] {
+  width: 72%;
+  margin-right: 2%;
+  display: inline-block;
+  outline: none;
+  background: rgba(250, 250, 250, 0.4);
+  border: none;
+  height: 40px;
+  border-radius: 4px;
+  padding: 1em 2em;
+  background-image: url(https://cdn.pixabay.com/photo/2018/01/11/06/26/construction-3075498__340.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+.links {
+    FONT-WEIGHT: 100;
+    display: block;
+    margin: 1.5em auto 0 auto;
+    text-align: center;
+    font-size: 1.8em;
+    color: white;
+}
