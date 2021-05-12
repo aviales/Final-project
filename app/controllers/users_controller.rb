@@ -8,6 +8,8 @@ class UsersController < ApplicationController
       format.html
       format.js
     end
+      @users = User.joins(:contractor).group("contractors.name").count
+    
   end
 
   def form
