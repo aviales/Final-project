@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'inspeccions', to:'inspeccions#index', as:'inspeccions'
   post "/inspeccions", to: 'inspeccions#create'
   get 'contractors/:id/api', to: 'contractors#api', as: 'api'
+   get 'projects/:id/api_v1', to: 'projects#api_project', as: 'api_v1'
   root'home#index'
 end
 

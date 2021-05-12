@@ -11,7 +11,5 @@ class CheckList < ApplicationRecord
   belongs_to :inspeccion, :optional => true
   validates :hazard_type, presence: true
  
-  def to_s
-    name
-  end
+  
 end

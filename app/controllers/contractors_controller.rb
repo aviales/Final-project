@@ -16,9 +16,8 @@ class ContractorsController < ApplicationController
   def api
     c = Contractor.find(params[:id])
     hash = {
-      name: contractor.name,
-      contractor_types: contractor.contractor_types,
-      user: contractor.users.pluck(:name)
+      name: Contractor.name,
+      contractor_types_attributes:[:name]  
     }
     render json: hash
   end

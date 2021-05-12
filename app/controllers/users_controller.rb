@@ -4,11 +4,13 @@ class UsersController < ApplicationController
   def index
     #  @users = User.all.order(created_at: :asc)
     @users = User.all
+    @check_list = CheckList.all
     respond_to do |format|
       format.html
       format.js
     end
       @users = User.joins(:contractor).group("contractors.name").count
+     
     
   end
 
@@ -60,7 +62,7 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :profile_picture)
+    params.require(:user).permit(:first_name, :last_name, :profile_picture,:check_list)
   end
   
 end

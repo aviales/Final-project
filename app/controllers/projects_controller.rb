@@ -7,6 +7,19 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
   end
+    def api_project  
+      project= Project.find(params[:id])
+      hash = {
+        name: project.name,
+        start_date: project.start_date,
+        finish_date: project.finish_date,
+        periodicity: project.periodicity,
+        user_id: project.user_id, 
+        inspeccions: project.inspeccions.pluck(:id)
+      }
+      render json: hash
+    end
+ 
 
   # GET /projects/1 or /projects/1.json
   def show

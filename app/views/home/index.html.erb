@@ -4,11 +4,11 @@
 
 
  <!-- LOADER -->
-     <!--<div id="preloader">
-    //     <div class="loader">
-    //         <%#= image_tag "loader.gif" %>
-    //     </div>
-    // </div>-->
+     <div id="preloader">
+        <div class="loader">
+          <%= image_tag "loader.gif" %>
+        </div>
+     </div>
      <!-- END LOADER --> 
 
 <!-- Header -->
@@ -41,6 +41,7 @@
                         <%= link_to 'Inspeccions', inspeccions_path, class: "dropdown-item" %>
                         <%= link_to 'Check list', check_lists_path, class: "dropdown-item" %>
                          <%= link_to 'Graphic', users_path, class: "dropdown-item" %>
+                         
                     </div>
             
                         <li class="nav-item dropdown">
@@ -90,7 +91,7 @@
                     </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="<%=asset_path('banner5.jpg') %>" class="d-block w-100" alt="...">
+                        <img src="<%=asset_path('banner5.jpg') %>" class="d-block w-100 " alt="...">
                            <div class="carousel-caption d-none d-md-block">
                               <h1 style="color:blue" ><strong>NUEVA APP SAFETY SOLUTIONS CR</h1></strong>
                               <p class="carouseltitle" style="color:white"><strong>Aplicacion para realizar inspecciones en los centro de trabajo</p></strong>
