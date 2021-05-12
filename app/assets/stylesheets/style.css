@@ -1,7 +1,7 @@
 
 /* carousel, */
-.carousel,
 .carousel-item,
+.carousel,
 .active {
     height: 300px;
 }
@@ -197,7 +197,6 @@ footer.footer-box-home p {
     color: #57cef8;
 }
 
-.contact-block-home {}
 
 .contact-block-home .form-group-home .form-control-home {
     background: #333;
