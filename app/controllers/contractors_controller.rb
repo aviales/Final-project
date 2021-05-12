@@ -13,6 +13,17 @@ class ContractorsController < ApplicationController
     @contractor_types = ContractorType.all
   end
 
+  def api
+    c = Contractor.find(params[:id])
+    hash = {
+      name: contractor.name,
+      contractor_types: contractor.contractor_types,
+      user: contractor.users.pluck(:name)
+    }
+    render json: hash
+  end
+
+
   # GET /contractors/1 or /contractors/1.json
   def show
   end
@@ -93,6 +104,6 @@ class ContractorsController < ApplicationController
     end
     # Only allow a list of trusted parameters through.
     def contractor_params
-      params.require(:contractor).permit(:name, :inspeccion_id, contractor_types_attributes: [:name] )
+      params.require(:contractor).permit(:name, :inspeccion_id,:id, contractor_types_attributes: [:name] )
     end
 end
