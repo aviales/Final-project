@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   
   resources :contractors
+  resources :users
   resources :work_areas
   resources :check_list_items
   resources :check_lists
@@ -21,5 +22,7 @@ Rails.application.routes.draw do
   end	
   get 'inspeccions', to:'inspeccions#index', as:'inspeccions'
   post "/inspeccions", to: 'inspeccions#create'
+  get 'contractors/:id/api', to: 'contractors#api', as: 'api'
   root'home#index'
 end
+
