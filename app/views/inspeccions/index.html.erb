@@ -9,7 +9,9 @@
             <div class="card-title d-flex justify-content-between align-items-center">
               <button type="button" class=" btn btn-primary " data-toggle="modal" data-target="#staticBackdrop">
                  Inspeccion New
-              </button>    
+              </button>   
+                   <%= link_to '<button type="button" class="btn btn-primary">Project</button>'.html_safe, projects_path %>
+                   <%= link_to '<button type="button" class="btn btn-primary">Check List</button>'.html_safe, check_lists_path %>
                 <% if !current_page?(inspeccions_path) %>
       
                 <%= link_to '<button type="button" class="btn btn-primary">All Inspeccion</button>'.html_safe, inspeccions_path %>
