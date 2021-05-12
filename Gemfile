@@ -71,3 +71,4 @@ gem 'activeadmin'
 gem "cocoon"
 gem 'coffee-rails', '~> 4.2'
 gem 'chartkick'
+gem 'highcharts-rails'
