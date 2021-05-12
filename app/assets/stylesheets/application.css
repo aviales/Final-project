@@ -89,3 +89,171 @@ body {
   color: rgb(0, 123, 164);
   font-size: 1.1rem;
 }
+
+
+.fa-trash {
+  float: right;
+  padding-left: 5px;
+}
+
+.fa-pen {
+  float: right;
+  padding-right: 5px;
+}
+
+.card-title, .date {
+  color: rgb(0, 123, 164);
+}
+
+.card-img-top {
+  margin: 10px 0 0 10px;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-block;
+}
+
+.card-title {
+  display: inline;
+}
+
+.login {
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(0, 123, 164) !important;
+}
+
+.button {
+  color: rgb(0, 123, 164);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+a {
+  color: rgb(12, 99, 180);
+}
+
+.registration input {
+  border-color: lightgrey;
+  outline: none;
+  width: 20rem;
+}
+
+.new_user {
+  color: rgb(0, 123, 164); 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pagination a {
+  color: rgb(0, 123, 164);    
+}
+
+.next_page {
+  margin-left: 1rem;
+}
+
+.previous_page {
+  display: none;
+}
+
+.cora {
+  float: right;
+  color: rgb(0, 123, 164);
+  margin-top: 2rem;
+  padding-right: 2rem;
+}
+
+.follow {
+  border: 1px solid rgb(0, 123, 164);
+  border-radius: 40px;
+  padding: 1px 5px;
+  margin-left: 0.6rem;
+  outline: none;
+}
+
+.follow:hover {
+  color: white;
+  background-color: rgb(0, 123, 164);
+}
+
+.follow:hover, .button:hover {
+  text-decoration: none;
+}
+
+.button:hover {
+  color: rgb(0, 123, 164);
+  font-size: 1.1rem;
+}
+
+/* changes on todolist */
+
+.links a {
+  color: #0e0d0d;
+  background-color: darkgreen;
+}
+
+.links {
+  display: block;
+  margin: 1.5em auto 0 auto;
+  text-align: center;
+  font-size: 1.8em;
+  color: white;
+}
+.links {
+	display: block;
+	margin: 1.5em auto 0 auto;
+	text-align: center;
+	font-size: 0.8em;
+	color: white;
+	
+}
+
+.forms {
+  padding: 0 5%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto;
+  background-image: url(https://images.pexels.com/photos/1249611/pexels-photo-1249611.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1400);
+}
+
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+label {
+  color: #e8e9e9f1;
+}
+
+#todo_items_wrapper .row .todo_item p {
+  margin: 0;
+  padding: 1em;
+  color: #e8e9e9f1;
+  font-weight: 100;
+}
+#todo_items_wrapper #form input[type="text"] {
+  width: 72%;
+  margin-right: 2%;
+  display: inline-block;
+  outline: none;
+  background: rgba(250, 250, 250, 0.4);
+  border: none;
+  height: 40px;
+  border-radius: 4px;
+  padding: 1em 2em;
+  background-image: url(https://cdn.pixabay.com/photo/2018/01/11/06/26/construction-3075498__340.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+.links {
+    FONT-WEIGHT: 100;
+    display: block;
+    margin: 1.5em auto 0 auto;
+    text-align: center;
+    font-size: 1.8em;
+    color: white;
+}
